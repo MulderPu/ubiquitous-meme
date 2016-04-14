@@ -6,6 +6,7 @@ public class Assessment {
 
     private String name;
     private int mark;
+    String weight; // can be change
 
     public Assessment(){
 

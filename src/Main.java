@@ -47,6 +47,7 @@ public class Main implements Serializable {
                     unitMenu();
                     break;
                 case 3:
+                    classMenu();
                     break;
                 case 4:
                     //Program Exit Point
@@ -57,6 +58,10 @@ public class Main implements Serializable {
             }
         }
         System.out.println("Bye Bye");
+    }
+
+    private static void classMenu() {
+        
     }
 
     private static void unitMenu() {
@@ -152,8 +157,6 @@ public class Main implements Serializable {
     }
 
     private static void editUnit() {
-        int cont = 0;
-        int exist = 1;
         //read unit file and store in arraylist
         readUnitFile();
 
@@ -164,14 +167,15 @@ public class Main implements Serializable {
             for (int i = 0; i < unitList.size(); i++) {
                 if (unitList.get(i).getName().equals(inputName)) {
                     unitList.get(i).printUnitDetails();
-                    exist =1;
-                }
-                else{
-                    exist = 0;
                 }
             }
 
-            if(exist == 1) {
+            System.out.println("Confirm edit this unit? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")){
+                int cont = 0;
                 while (cont != 3) {
                     System.out.println("============================================================");
                     System.out.println("1) Edit Name");
@@ -203,13 +207,13 @@ public class Main implements Serializable {
                             break;
                         case 2:
                             System.out.println("============================================================");
-                            System.out.println("Old ID: ");
-                            String oldId = input.nextLine();
-                            System.out.println("New ID: ");
-                            String newId = input.nextLine();
+                            System.out.println("Old Code: ");
+                            String oldCode = input.nextLine();
+                            System.out.println("New Code: ");
+                            String newCode = input.nextLine();
                             for (int i = 0; i < unitList.size(); i++) {
-                                if (unitList.get(i).getCode().equals(oldId)) {
-                                    unitList.get(i).setCode(newId);
+                                if (unitList.get(i).getCode().equals(oldCode)) {
+                                    unitList.get(i).setCode(newCode);
                                 }
                             }
                             break;
@@ -220,14 +224,10 @@ public class Main implements Serializable {
                             System.out.println("Invalid Input");
                     }
                 }
-
-                //re-write unit file for changes
-                writeUnitFile();
-                System.out.println("Unit had been edited.");
             }
-            else{
-                System.out.println("Unit not exist.");
-            }
+            System.out.println("Unit had been updated.");
+            //re-write unit file for the changes made
+            writeUnitFile();
 
             System.out.println("Do you want to continue edit unit? [y/n]");
             String result = input.next();
@@ -363,9 +363,7 @@ public class Main implements Serializable {
         }
     }
 
-    //delete student
     private static void deleteStudent() {
-
         //read student file and store in arraylist
         readStudentFile();
 
@@ -413,28 +411,26 @@ public class Main implements Serializable {
         }
     }
 
-    //edit student
     private static void editStudent() {
-        int cont = 0;
-        int exist = 1;
         //read student file and store in arraylist
         readStudentFile();
 
         while(loop) {
             System.out.println("Enter student name: ");
-            String inputName =  input.nextLine();
+            String inputName = input.nextLine();
 
             for (int i = 0; i < studentList.size(); i++) {
                 if (studentList.get(i).getName().equals(inputName)) {
                     studentList.get(i).printStudentDetails();
-                    exist =1;
-                }
-                else{
-                    exist = 0;
                 }
             }
 
-            if(exist == 1) {
+            System.out.println("Confirm edit this student? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")){
+                int cont = 0;
                 while (cont != 4) {
                     System.out.println("============================================================");
                     System.out.println("1) Edit Name");
@@ -496,14 +492,10 @@ public class Main implements Serializable {
                             System.out.println("Invalid Input");
                     }
                 }
-
-                //re-write student file for changes
-                writeStudentFile();
-                System.out.println("Student had been edited.");
             }
-            else{
-                System.out.println("Student not exist.");
-            }
+            System.out.println("Student had been updated.");
+            //re-write student file for the changes made
+            writeStudentFile();
 
             System.out.println("Do you want to continue edit student? [y/n]");
             String result = input.next();
@@ -518,7 +510,6 @@ public class Main implements Serializable {
         }
     }
 
-    //view list of student and details
     private static void viewStudent() {
         //read file and store in arraylist
         readStudentFile();
@@ -554,7 +545,6 @@ public class Main implements Serializable {
         }
     }
 
-    //create student and add to arraylist
     private static void createStudent() {
         //read file and store in arraylist
         readStudentFile();

@@ -32,5 +32,19 @@ public class Class {
         this.code = code;
     }
 
+    public void enrollStudent(){
 
+    }
+
+    public void removeStudent(){
+
+    }
+
+    public void addUnit(){
+
+    }
+
+    public void addAssessment(){
+
+    }
 }
