@@ -10,7 +10,6 @@ public class Student implements Serializable {
     private String name;
     private String id;
     private String program;
-    ArrayList<Student> studentList = new ArrayList<>();
 
     public Student() {}
 
@@ -18,10 +17,6 @@ public class Student implements Serializable {
         this.name = name;
         this.id = id;
         this.program = program;
-    }
-
-    public void add(){
-        studentList.add(this);
     }
 
     public void setName(String name) {
@@ -53,19 +48,4 @@ public class Student implements Serializable {
                 + "ID :" + this.getId() + "\n"
                 + "Program Enrolled :" + this.getProgram() + "\n");
     }
-
-    public void printStudentList(){
-        for (int i = 0; i < studentList.size();i++){
-            studentList.get(i).printStudentDetails();
-        }
-    }
-
-    public void deleteStudent(String name){
-        for(int i = 0; i<studentList.size(); i++){
-            if(studentList.get(i).getName().equals(name)){
-                studentList.remove(i);
-            }
-        }
-    }
-
 }

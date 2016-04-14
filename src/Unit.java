@@ -1,17 +1,15 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Project Name : Java Assignment 1
  * Created by Mulder on 3/29/2016.
  */
-public class Unit {
+public class Unit implements Serializable {
     private String name;
     private String code;
 
-    public Unit(){
-        this.name = "";
-        this.code = "";
-    }
+    public Unit(){}
 
     public Unit(String name, String code){
         this.name = name;
@@ -35,10 +33,7 @@ public class Unit {
     }
 
     public void printUnitDetails(){
-        System.out.println("Unit :" + this.getName() + "\n" + "Unit Code :" + this.getCode());
+        System.out.println("Unit :" + this.getName() + "\n" + "Unit Code :" + this.getCode() + "\n");
     }
 
-    public  void addAssessment(){
-
-    }
 }
