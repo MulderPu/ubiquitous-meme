@@ -8,9 +8,7 @@ public class Assessment {
     private int mark;
     String weight; // can be change
 
-    public Assessment(){
-
-    }
+    public Assessment(){}
 
     public Assessment(String name, int mark){
         this.mark = mark;

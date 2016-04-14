@@ -15,6 +15,7 @@ public class Main implements Serializable {
     static int userInput;
     static  ArrayList<Student> studentList = new ArrayList<>();
     static  ArrayList<Unit> unitList = new ArrayList<>();
+    static  ArrayList<Class> classList = new ArrayList<>();
     static boolean loop = true;
 
     public static void main(String[] args) {
@@ -22,12 +23,13 @@ public class Main implements Serializable {
     }
 
     private static void homeMenu(){
-        while(userInput != 4) {
+        while(userInput != 5) {
             printHeader("HOME >>");
             System.out.println("1) Student Menu");
             System.out.println("2) Unit Menu");
             System.out.println("3) Class Menu");
-            System.out.println("4) Exit Application");
+            System.out.println("4) Assessment Menu");
+            System.out.println("5) Exit Application");
             System.out.println();
             System.out.println("Select number: ");
 
@@ -50,6 +52,9 @@ public class Main implements Serializable {
                     classMenu();
                     break;
                 case 4:
+                    assessmentMenu();
+                    break;
+                case 5:
                     //Program Exit Point
                     break;
                 default:
@@ -60,8 +65,262 @@ public class Main implements Serializable {
         System.out.println("Bye Bye");
     }
 
+    private static void assessmentMenu() {
+    }
+
     private static void classMenu() {
-        
+        while(userInput != 0)
+        {
+            printHeader("HOME >> CLASS MENU");
+            System.out.println("1) Create Class");
+            System.out.println("2) View Class");
+            System.out.println("3) Edit Class");
+            System.out.println("4) Delete Class");
+            System.out.println("0) Back");
+            System.out.println();
+            System.out.println("Select number: ");
+
+            try{
+                userInput = input.nextInt();
+                input.nextLine();
+            }catch(Exception e)
+            {
+                input.nextLine();
+                System.out.println(e);
+            }
+
+            switch(userInput)
+            {
+                case 1:
+                    createClass();
+                    break;
+                case 2:
+                    viewClass();
+                    break;
+                case 3:
+                    editClass();
+                    break;
+                case 4:
+                    deleteClass();
+                    break;
+                case 0:
+                    //Back Point
+                    break;
+                default:
+                    System.out.println("Invalid Input");
+            }
+        }
+    }
+
+    private static void deleteClass() {
+        //read class file and store in arraylist
+        readClassFile();
+
+        while (loop){
+            System.out.println("Enter class name: ");
+            String inputName = input.nextLine();
+
+            for (int i = 0; i < classList.size(); i++) {
+                if (classList.get(i).getName().equals(inputName)) {
+                    classList.get(i).printClassDetails();
+                }
+            }
+
+            System.out.println("Confirm delete class? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")){
+                System.out.println("Enter class name again: ");
+                String className = input.nextLine();
+                System.out.println("Enter class code : ");
+                String classCode = input.nextLine();
+
+                for (int i = 0; i < classList.size(); i++) {
+                    if (classList.get(i).getName().equals(className) && classList.get(i).getCode().equals(classCode)) {
+                        classList.remove(i);
+                        System.out.println("Class had been removed.");
+                    }
+                }
+            }
+
+            //re-write class file for the changes made
+            writeClassFile();
+
+            System.out.println("Do you want to continue delete class? [y/n]");
+            String result = input.next();
+            input.nextLine();
+
+            if(result.equals("n")){
+                break;
+            }
+            else{
+                loop=true;
+            }
+        }
+    }
+
+    private static void editClass() {
+        //read class file and store in arraylist
+        readClassFile();
+
+        while(loop) {
+            System.out.println("Enter class name: ");
+            String inputName = input.nextLine();
+
+            for (int i = 0; i < classList.size(); i++) {
+                if (classList.get(i).getName().equals(inputName)) {
+                    classList.get(i).printClassDetails();
+                }
+            }
+
+            System.out.println("Confirm edit this class? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")){
+                int cont = 0;
+                while (cont != 3) {
+                    System.out.println("============================================================");
+                    System.out.println("1) Edit Name");
+                    System.out.println("2) Edit Code");
+                    System.out.println("3) Back");
+                    System.out.println();
+                    System.out.println("Select number: ");
+
+                    try {
+                        cont = input.nextInt();
+                        input.nextLine();
+                    } catch (Exception e) {
+                        input.nextLine();
+                        System.out.println(e);
+                    }
+
+                    switch (cont) {
+                        case 1:
+                            System.out.println("============================================================");
+                            System.out.println("Old Name: ");
+                            String oldName = input.nextLine();
+                            System.out.println("New Name: ");
+                            String newName = input.nextLine();
+                            for (int i = 0; i < classList.size(); i++) {
+                                if (classList.get(i).getName().equals(oldName)) {
+                                    classList.get(i).setName(newName);
+                                }
+                            }
+                            break;
+                        case 2:
+                            System.out.println("============================================================");
+                            System.out.println("Old Code: ");
+                            String oldCode = input.nextLine();
+                            System.out.println("New Code: ");
+                            String newCode = input.nextLine();
+                            for (int i = 0; i < classList.size(); i++) {
+                                if (classList.get(i).getCode().equals(oldCode)) {
+                                    classList.get(i).setCode(newCode);
+                                }
+                            }
+                            break;
+                        case 3:
+                            //Back Point
+                            break;
+                        default:
+                            System.out.println("Invalid Input");
+                    }
+                }
+            }
+            System.out.println("Class had been updated.");
+            //re-write unit file for the changes made
+            writeClassFile();
+
+            System.out.println("Do you want to continue edit class? [y/n]");
+            String result = input.next();
+            input.nextLine();
+
+            if(result.equals("n")){
+                break;
+            }
+            else{
+                loop=true;
+            }
+        }
+    }
+
+    private static void viewClass() {
+        //read file and store in arraylist
+        readClassFile();
+
+        while(loop){
+            System.out.println("============================================================");
+            System.out.println("Lists of classes");
+            System.out.println("============================================================");
+
+            //loop for class list
+            for (int i = 0; i < classList.size(); i++) {
+                System.out.println(i + "." + classList.get(i).getName());
+            }
+
+            //show specific unit details
+            System.out.println("Enter class name for more info: ['exit' to back]");
+            String inputName = input.nextLine();
+
+            if (inputName.equals("exit")) {
+                break;
+            } else {
+
+                System.out.println("============================================================");
+                System.out.println("Class info");
+                System.out.println("============================================================");
+                for (int i = 0; i < classList.size(); i++) {
+                    if (classList.get(i).getName().equals(inputName)) {
+                        classList.get(i).printClassDetails();
+                    }
+                }
+                pressEnterKeyToContinue();
+            }
+        }
+    }
+
+    private static void createClass() {
+        //read file and store in arraylist
+        readClassFile();
+
+        while(loop) {
+            System.out.println("Do you wish to create a class? [y/n]");
+            String ans = input.next();
+            input.nextLine();
+
+            if(ans.equals("n")){
+                break;
+            }
+
+            System.out.println("Please enter the class information:");
+            System.out.println("Name :");
+            String inputName = input.nextLine();
+            System.out.println("Code :");
+            String inputCode = input.nextLine();
+
+            //create class, add to arraylist
+            Class newClass = new Class(inputName, inputCode);
+
+            if (!inputName.equals("") || !inputCode.equals("")) {
+                classList.add(newClass);
+            }
+
+            //store arraylist in txt file
+            writeClassFile();
+
+            System.out.println("Class had been created.");
+            System.out.println("Do you want to continue create class? [y/n]");
+            String result = input.next();
+
+            if(result.equals("n")){
+                break;
+            }
+            else{
+                loop=true;
+            }
+        }
     }
 
     private static void unitMenu() {
@@ -128,12 +387,12 @@ public class Main implements Serializable {
 
             if (ans.equals("y")){
                 System.out.println("Enter unit name again: ");
-                String StudName = input.nextLine();
+                String unitName = input.nextLine();
                 System.out.println("Enter unit code : ");
-                String StudCode = input.nextLine();
+                String unitCode = input.nextLine();
 
                 for (int i = 0; i < unitList.size(); i++) {
-                    if (unitList.get(i).getName().equals(StudName) && unitList.get(i).getCode().equals(StudCode)) {
+                    if (unitList.get(i).getName().equals(unitName) && unitList.get(i).getCode().equals(unitCode)) {
                         unitList.remove(i);
                         System.out.println("Unit had been removed.");
                     }
@@ -296,7 +555,7 @@ public class Main implements Serializable {
             System.out.println("Code :");
             String inputCode = input.nextLine();
 
-            //create student, add to arraylist
+            //create unit, add to arraylist
             Unit newUnit = new Unit(inputName, inputCode);
 
             if (!inputName.equals("") || !inputCode.equals("")) {
@@ -546,6 +805,7 @@ public class Main implements Serializable {
     }
 
     private static void createStudent() {
+
         //read file and store in arraylist
         readStudentFile();
 
@@ -618,9 +878,10 @@ public class Main implements Serializable {
             ObjectInputStream ois = new ObjectInputStream(fis);
             studentList = (ArrayList) ois.readObject();
             ois.close();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     //write student file
@@ -642,9 +903,10 @@ public class Main implements Serializable {
             ObjectInputStream ois2 = new ObjectInputStream(fis2);
             unitList = (ArrayList) ois2.readObject();
             ois2.close();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     //write unit file
@@ -659,8 +921,29 @@ public class Main implements Serializable {
         }
     }
 
+    //read class file
+    private static void readClassFile(){
+        try {
+            FileInputStream fis3 = new FileInputStream("class.txt");
+            ObjectInputStream ois3 = new ObjectInputStream(fis3);
+            classList = (ArrayList) ois3.readObject();
+            ois3.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-
+    //write class file
+    private static void writeClassFile(){
+        try {
+            FileOutputStream fos3 = new FileOutputStream("class.txt");
+            ObjectOutputStream oos3 = new ObjectOutputStream(fos3);
+            oos3.writeObject(classList);
+            oos3.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

@@ -5,9 +5,7 @@
 public class Semester {
     private String name;
 
-    public Semester(){
-
-    }
+    public Semester(){}
 
     public Semester(String name){
         this.name=name;
