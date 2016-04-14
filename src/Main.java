@@ -73,6 +73,7 @@ public class Main implements Serializable {
 
             try{
                 userInput = input.nextInt();
+                input.nextLine();
             }catch(Exception e)
             {
                 input.nextLine();
@@ -172,6 +173,7 @@ public class Main implements Serializable {
 
             if(exist == 1) {
                 while (cont != 3) {
+                    System.out.println("============================================================");
                     System.out.println("1) Edit Name");
                     System.out.println("2) Edit Code");
                     System.out.println("3) Back");
@@ -188,6 +190,7 @@ public class Main implements Serializable {
 
                     switch (cont) {
                         case 1:
+                            System.out.println("============================================================");
                             System.out.println("Old Name: ");
                             String oldName = input.nextLine();
                             System.out.println("New Name: ");
@@ -199,6 +202,7 @@ public class Main implements Serializable {
                             }
                             break;
                         case 2:
+                            System.out.println("============================================================");
                             System.out.println("Old ID: ");
                             String oldId = input.nextLine();
                             System.out.println("New ID: ");
@@ -418,7 +422,7 @@ public class Main implements Serializable {
 
         while(loop) {
             System.out.println("Enter student name: ");
-            String inputName = input.nextLine();
+            String inputName =  input.nextLine();
 
             for (int i = 0; i < studentList.size(); i++) {
                 if (studentList.get(i).getName().equals(inputName)) {
@@ -432,6 +436,7 @@ public class Main implements Serializable {
 
             if(exist == 1) {
                 while (cont != 4) {
+                    System.out.println("============================================================");
                     System.out.println("1) Edit Name");
                     System.out.println("2) Edit ID");
                     System.out.println("3) Edit Program Enrolled");
@@ -449,6 +454,7 @@ public class Main implements Serializable {
 
                     switch (cont) {
                         case 1:
+                            System.out.println("============================================================");
                             System.out.println("Old Name: ");
                             String oldName = input.nextLine();
                             System.out.println("New Name: ");
@@ -460,6 +466,7 @@ public class Main implements Serializable {
                             }
                             break;
                         case 2:
+                            System.out.println("============================================================");
                             System.out.println("Old ID: ");
                             String oldId = input.nextLine();
                             System.out.println("New ID: ");
@@ -471,6 +478,7 @@ public class Main implements Serializable {
                             }
                             break;
                         case 3:
+                            System.out.println("============================================================");
                             System.out.println("Old Program: ");
                             String oldProgram = input.nextLine();
                             System.out.println("New Program: ");
