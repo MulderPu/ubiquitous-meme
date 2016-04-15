@@ -322,8 +322,7 @@ public class Main implements Serializable {
                     if(unitList.get(i).getName().equals(inputUnit)){
                         for (int j = 0; j < classList.size(); j++) {
                             if (classList.get(j).getName().equals(inputName)) {
-                                classList.get(j).setUnitName(unitList.get(i).getName());
-                                classList.get(j).setUnitCode(unitList.get(i).getCode());
+                                classList.get(j).setUnit(unitList.get(i));
                             }
                         }
                     }
@@ -520,7 +519,7 @@ public class Main implements Serializable {
 
     private static void createClass() {
         //read file and store in arraylist
-//        readClassFile();
+        readClassFile();
 
         while(loop) {
             System.out.println("Do you wish to create a class? [y/n]");

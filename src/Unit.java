@@ -36,4 +36,8 @@ public class Unit implements Serializable {
         System.out.println("Unit :" + this.getName() + "\n" + "Unit Code :" + this.getCode() + "\n");
     }
 
+    @Override
+    public String toString() {
+        return ("Unit Name:" + this.getName() + "\n" + "Unit Code :" + this.getCode());
+    }
 }

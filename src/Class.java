@@ -8,8 +8,7 @@ import java.util.ArrayList;
 public class Class implements Serializable{
     private String name;
     private String code;
-    private String unitName;
-    private String unitCode;
+    private Unit unit;
     private ArrayList<Student> studentList = new ArrayList<>();
     private Assessment assessment;
 
@@ -18,8 +17,6 @@ public class Class implements Serializable{
     public Class(String name, String code){
         this.name = name;
         this.code = code;
-        this.unitName = "";
-        this.unitCode = "";
     }
 
     public String getName() {
@@ -50,26 +47,18 @@ public class Class implements Serializable{
         }
     }
 
+    public Unit getUnit() {
+        return unit;
+    }
+
     public void getStudentList() {
         for(int i =0; i < studentList.size(); i++){
             System.out.println( i + "." + studentList.get(i).getName());
         }
     }
 
-    public void setUnitName(String unitName ){
-        this.unitName = unitName;
-    }
-
-    public String getUnitName() {
-        return unitName;
-    }
-
-    public void setUnitCode(String unitCode) {
-        this.unitCode = unitCode;
-    }
-
-    public String getUnitCode() {
-        return unitCode;
+    public void setUnit(Unit unit) {
+        this.unit = unit;
     }
 
     public void setAssessment(Assessment assessment){
@@ -81,10 +70,9 @@ public class Class implements Serializable{
     }
 
     public void printClassDetails(){
-        System.out.println("Class Name :" + this.getName() + "\n" + "Class Code :" + this.getCode() + "\n"
-                            + "Unit Name: " + this.getUnitName() + "\n"
-                            + "Unit Code: " + this.getUnitCode() + "\n"
-                            +"List of students: ");
+        System.out.println("Class Name :" + this.getName() + "\n" + "Class Code :" + this.getCode());
+        System.out.println(this.getUnit());
+        System.out.println("List of students :" + "\n");
         for(int i =0; i < studentList.size(); i++){
             System.out.println("\t" + i + "." + studentList.get(i).getName());
         }
