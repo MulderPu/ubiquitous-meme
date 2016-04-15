@@ -66,6 +66,51 @@ public class Main implements Serializable {
     }
 
     private static void assessmentMenu() {
+        while(userInput != 0)
+        {
+            printHeader("HOME >> ASSESSMENT MENU");
+            System.out.println("1) Create Assessment");
+            System.out.println("2) View Assessment");
+            System.out.println("3) Edit Assessment");
+            System.out.println("4) Delete Assessment");
+            System.out.println("0) Back");
+            System.out.println();
+            System.out.println("Select number: ");
+
+            try{
+                userInput = input.nextInt();
+                input.nextLine();
+            }catch(Exception e)
+            {
+                input.nextLine();
+                System.out.println(e);
+            }
+
+            switch(userInput)
+            {
+                case 1:
+                    createAssessment();
+                    break;
+                case 2:
+//                    viewAssessment();
+                    break;
+                case 3:
+//                    editAssessment();
+                    break;
+                case 4:
+//                    deleteAssessment();
+                    break;
+                case 0:
+                    //Back Point
+                    break;
+                default:
+                    System.out.println("Invalid Input");
+            }
+        }
+    }
+
+    private static void createAssessment() {
+
     }
 
     private static void classMenu() {
@@ -76,6 +121,9 @@ public class Main implements Serializable {
             System.out.println("2) View Class");
             System.out.println("3) Edit Class");
             System.out.println("4) Delete Class");
+            System.out.println("5) Add Unit to Class");
+            System.out.println("6) Add Student to Class");
+            System.out.println("7) Add Assessment to Class");
             System.out.println("0) Back");
             System.out.println();
             System.out.println("Select number: ");
@@ -103,6 +151,15 @@ public class Main implements Serializable {
                 case 4:
                     deleteClass();
                     break;
+                case 5:
+                    addUnitToClass();
+                    break;
+                case 6:
+
+                    break;
+                case 7:
+
+                    break;
                 case 0:
                     //Back Point
                     break;
@@ -110,6 +167,67 @@ public class Main implements Serializable {
                     System.out.println("Invalid Input");
             }
         }
+    }
+
+    private static void addUnitToClass() {
+        readClassFile();
+        readUnitFile();
+
+        while(loop){
+            System.out.println("Enter class name: ");
+            String inputName = input.nextLine();
+
+            for (int i = 0; i < classList.size(); i++) {
+                if (classList.get(i).getName().equals(inputName)) {
+                    classList.get(i).printClassDetails();
+                }
+            }
+
+            System.out.println("Confirm add unit to this class? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")){
+                System.out.println("============================================================");
+                System.out.println("Lists of units");
+                System.out.println("============================================================");
+
+                //loop for unit list
+                for (int i = 0; i < unitList.size(); i++) {
+                    System.out.println(i + "." + unitList.get(i).getName());
+                }
+
+                System.out.println("Enter unit name you wish to add:");
+                String inputUnit = input.nextLine();
+
+                for (int i = 0; i < unitList.size(); i++) {
+                    if(unitList.get(i).getName().equals(inputUnit)){
+                        for (int j = 0; j < classList.size(); j++) {
+                            if (classList.get(j).getName().equals(inputName)) {
+                                classList.get(j).setUnitName(unitList.get(i).getName());
+                                classList.get(j).setUnitCode(unitList.get(i).getCode());
+                            }
+                        }
+                    }
+                }
+            }
+
+            System.out.println("Class had been updated.");
+            //re-write class file for the changes made
+            writeClassFile();
+
+            System.out.println("Do you want to exit? [y/n]");
+            String result = input.next();
+            input.nextLine();
+
+            if(result.equals("n")){
+                break;
+            }
+            else{
+                loop=true;
+            }
+        }
+
     }
 
     private static void deleteClass() {
@@ -230,7 +348,7 @@ public class Main implements Serializable {
                 }
             }
             System.out.println("Class had been updated.");
-            //re-write unit file for the changes made
+            //re-write class file for the changes made
             writeClassFile();
 
             System.out.println("Do you want to continue edit class? [y/n]");
@@ -267,7 +385,6 @@ public class Main implements Serializable {
             if (inputName.equals("exit")) {
                 break;
             } else {
-
                 System.out.println("============================================================");
                 System.out.println("Class info");
                 System.out.println("============================================================");
@@ -944,6 +1061,5 @@ public class Main implements Serializable {
             e.printStackTrace();
         }
     }
-
 
 }

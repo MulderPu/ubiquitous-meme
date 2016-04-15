@@ -10,9 +10,9 @@ public class Assessment {
 
     public Assessment(){}
 
-    public Assessment(String name, int mark){
-        this.mark = mark;
+    public Assessment(String name){
         this.name = name;
+        this.mark = mark;
     }
 
     public void setName(String name) {
