@@ -174,10 +174,60 @@ public class Main implements Serializable {
     }
 
     private static void removeStudFromClass() {
+        readClassFile();
 
+        while(loop){
+            System.out.println("Enter class name: ");
+            String inputName = input.nextLine();
+
+            for (int i = 0; i < classList.size(); i++) {
+                if (classList.get(i).getName().equals(inputName)) {
+                    classList.get(i).printClassDetails();
+                }
+            }
+
+            System.out.println("Class detail will not show if the class is not exist.");
+            System.out.println("Confirm remove student from this class? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")) {
+                System.out.println("============================================================");
+                System.out.println("Lists of students from class");
+                System.out.println("============================================================");
+                    for (int i = 0; i < classList.size(); i++) {
+                        classList.get(i).getStudentList();
+                    }
+
+                System.out.println("Enter student name you wish to remove:");
+                String inputStud = input.nextLine();
+
+                for (int i = 0; i < classList.size(); i++) {
+//                    if(classList.get(i).getName().equals(inputStud)){
+                        classList.get(i).removeStudent(inputStud);
+                        System.out.println("Student had been removed.");
+//                    }
+                }
+            }
+
+            System.out.println("Class had been updated.");
+            //re-write class file for the changes made
+            writeClassFile();
+
+            System.out.println("Do you want to continue remove student from class? [y/n]");
+            String result = input.next();
+            input.nextLine();
+
+            if(result.equals("n")){
+                break;
+            }
+            else{
+                loop=true;
+            }
+        }
     }
 
-    private static void addStudToClass() {
+    private static void addStudToClass(){
         readClassFile();
         readStudentFile();
 
@@ -212,11 +262,11 @@ public class Main implements Serializable {
                         for (int j = 0; j < classList.size(); j++) {
                             if (classList.get(j).getName().equals(inputName)) {
                                 classList.get(j).enrollStudent(studentList.get(i));
+                                System.out.println("Student had been added into the class.");
                             }
                         }
                     }
                 }
-
             }
 
             System.out.println("Class had been updated.");

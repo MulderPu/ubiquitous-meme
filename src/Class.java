@@ -42,15 +42,18 @@ public class Class implements Serializable{
         this.studentList.add(student);
     }
 
-    public void removeStudent(Student student){
-       this.studentList.remove(student);
+    public void removeStudent(String studName){
+        for(int i =0; i < studentList.size(); i++){
+            if(studentList.get(i).getName().equals(studName)){
+                this.studentList.remove(studentList.get(i));
+            }
+        }
     }
 
-    public String getStudentList() {
+    public void getStudentList() {
         for(int i =0; i < studentList.size(); i++){
-            return studentList.get(i).getName();
+            System.out.println( i + "." + studentList.get(i).getName());
         }
-        return null;
     }
 
     public void setUnitName(String unitName ){
@@ -69,12 +72,6 @@ public class Class implements Serializable{
         return unitCode;
     }
 
-    public void printStudentListDetail(){
-        for(int i =0; i < studentList.size(); i++){
-            System.out.println(studentList.get(i).getName());
-        }
-    }
-
     public void setAssessment(Assessment assessment){
         this.assessment = assessment;
     }
@@ -87,6 +84,9 @@ public class Class implements Serializable{
         System.out.println("Class Name :" + this.getName() + "\n" + "Class Code :" + this.getCode() + "\n"
                             + "Unit Name: " + this.getUnitName() + "\n"
                             + "Unit Code: " + this.getUnitCode() + "\n"
-                            +"List of students: " + getStudentList() + "\n");
+                            +"List of students: ");
+        for(int i =0; i < studentList.size(); i++){
+            System.out.println("\t" + i + "." + studentList.get(i).getName());
+        }
     }
 }
