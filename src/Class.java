@@ -18,6 +18,8 @@ public class Class implements Serializable{
     public Class(String name, String code){
         this.name = name;
         this.code = code;
+        this.unitName = "";
+        this.unitCode = "";
     }
 
     public String getName() {
@@ -44,8 +46,11 @@ public class Class implements Serializable{
        this.studentList.remove(student);
     }
 
-    public ArrayList<Student> getStudentList() {
-        return studentList;
+    public String getStudentList() {
+        for(int i =0; i < studentList.size(); i++){
+            return studentList.get(i).getName();
+        }
+        return null;
     }
 
     public void setUnitName(String unitName ){
@@ -64,6 +69,12 @@ public class Class implements Serializable{
         return unitCode;
     }
 
+    public void printStudentListDetail(){
+        for(int i =0; i < studentList.size(); i++){
+            System.out.println(studentList.get(i).getName());
+        }
+    }
+
     public void setAssessment(Assessment assessment){
         this.assessment = assessment;
     }
@@ -76,6 +87,6 @@ public class Class implements Serializable{
         System.out.println("Class Name :" + this.getName() + "\n" + "Class Code :" + this.getCode() + "\n"
                             + "Unit Name: " + this.getUnitName() + "\n"
                             + "Unit Code: " + this.getUnitCode() + "\n"
-                            +"List of students" + this.getStudentList() + "\n");
+                            +"List of students: " + getStudentList() + "\n");
     }
 }

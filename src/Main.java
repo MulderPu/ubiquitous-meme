@@ -123,7 +123,8 @@ public class Main implements Serializable {
             System.out.println("4) Delete Class");
             System.out.println("5) Add Unit to Class");
             System.out.println("6) Add Student to Class");
-            System.out.println("7) Add Assessment to Class");
+            System.out.println("7) Remove Student from Class");
+            System.out.println("8) Add Assessment to Class");
             System.out.println("0) Back");
             System.out.println();
             System.out.println("Select number: ");
@@ -155,9 +156,12 @@ public class Main implements Serializable {
                     addUnitToClass();
                     break;
                 case 6:
-
+                    addStudToClass();
                     break;
                 case 7:
+                    removeStudFromClass();
+                    break;
+                case 8:
 
                     break;
                 case 0:
@@ -165,6 +169,69 @@ public class Main implements Serializable {
                     break;
                 default:
                     System.out.println("Invalid Input");
+            }
+        }
+    }
+
+    private static void removeStudFromClass() {
+
+    }
+
+    private static void addStudToClass() {
+        readClassFile();
+        readStudentFile();
+
+        while(loop){
+            System.out.println("Enter class name: ");
+            String inputName = input.nextLine();
+
+            for (int i = 0; i < classList.size(); i++) {
+                if (classList.get(i).getName().equals(inputName)) {
+                    classList.get(i).printClassDetails();
+                }
+            }
+
+            System.out.println("Class detail will not show if the class is not exist.");
+            System.out.println("Confirm add student to this class? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")) {
+                System.out.println("============================================================");
+                System.out.println("Lists of students");
+                System.out.println("============================================================");
+                for (int i = 0; i < studentList.size(); i++) {
+                    System.out.println(i + "." + studentList.get(i).getName());
+                }
+
+                System.out.println("Enter student name you wish to add:");
+                String inputStud = input.nextLine();
+
+                for (int i = 0; i < studentList.size(); i++) {
+                    if(studentList.get(i).getName().equals(inputStud)){
+                        for (int j = 0; j < classList.size(); j++) {
+                            if (classList.get(j).getName().equals(inputName)) {
+                                classList.get(j).enrollStudent(studentList.get(i));
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            System.out.println("Class had been updated.");
+            //re-write class file for the changes made
+            writeClassFile();
+
+            System.out.println("Do you want to continue add student to class? [y/n]");
+            String result = input.next();
+            input.nextLine();
+
+            if(result.equals("n")){
+                break;
+            }
+            else{
+                loop=true;
             }
         }
     }
@@ -183,6 +250,7 @@ public class Main implements Serializable {
                 }
             }
 
+            System.out.println("Class detail will not show if the class is not exist.");
             System.out.println("Confirm add unit to this class? [y/n] ");
             String ans = input.next();
             input.nextLine();
@@ -220,7 +288,7 @@ public class Main implements Serializable {
             String result = input.next();
             input.nextLine();
 
-            if(result.equals("n")){
+            if(result.equals("y")){
                 break;
             }
             else{
@@ -244,6 +312,7 @@ public class Main implements Serializable {
                 }
             }
 
+            System.out.println("Class detail will not show if the class is not exist.");
             System.out.println("Confirm delete class? [y/n] ");
             String ans = input.next();
             input.nextLine();
@@ -292,6 +361,7 @@ public class Main implements Serializable {
                 }
             }
 
+            System.out.println("Class detail will not show if the class is not exist.");
             System.out.println("Confirm edit this class? [y/n] ");
             String ans = input.next();
             input.nextLine();
@@ -400,7 +470,7 @@ public class Main implements Serializable {
 
     private static void createClass() {
         //read file and store in arraylist
-        readClassFile();
+//        readClassFile();
 
         while(loop) {
             System.out.println("Do you wish to create a class? [y/n]");
@@ -498,6 +568,7 @@ public class Main implements Serializable {
                 }
             }
 
+            System.out.println("Unit detail will not show if the unit is not exist.");
             System.out.println("Confirm delete unit? [y/n] ");
             String ans = input.next();
             input.nextLine();
@@ -546,6 +617,7 @@ public class Main implements Serializable {
                 }
             }
 
+            System.out.println("Unit detail will not show if the unit is not exist.");
             System.out.println("Confirm edit this unit? [y/n] ");
             String ans = input.next();
             input.nextLine();
@@ -753,6 +825,7 @@ public class Main implements Serializable {
                 }
             }
 
+            System.out.println("Student detail will not show if the student is not exist.");
             System.out.println("Confirm delete? [y/n] ");
             String ans = input.next();
             input.nextLine();
@@ -801,6 +874,7 @@ public class Main implements Serializable {
                 }
             }
 
+            System.out.println("Student detail will not show if the student is not exist.");
             System.out.println("Confirm edit this student? [y/n] ");
             String ans = input.next();
             input.nextLine();

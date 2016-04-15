@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91c8e3b5-e75a-4460-8689-334c9ed65665" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Java Assignment 1/Assessment.class" afterPath="$PROJECT_DIR$/out/production/Java Assignment 1/Assessment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Java Assignment 1/Class.class" afterPath="$PROJECT_DIR$/out/production/Java Assignment 1/Class.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Java Assignment 1/Main.class" afterPath="$PROJECT_DIR$/out/production/Java Assignment 1/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/class.txt" afterPath="$PROJECT_DIR$/class.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assessment.java" afterPath="$PROJECT_DIR$/src/Assessment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Class.java" afterPath="$PROJECT_DIR$/src/Class.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
     </list>
@@ -34,18 +32,17 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6637168">
-              <caret line="171" column="41" selection-start-line="171" selection-start-column="41" selection-end-line="171" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.6924779">
+              <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
               <folding>
                 <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
                 <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
                 <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
-                <element signature="method#classMenu#0;class#Main#0" expanded="false" />
+                <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
                 <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
                 <element signature="method#deleteClass#0;class#Main#0" expanded="false" />
                 <element signature="method#editClass#0;class#Main#0" expanded="false" />
                 <element signature="method#viewClass#0;class#Main#0" expanded="false" />
-                <element signature="method#createClass#0;class#Main#0" expanded="false" />
                 <element signature="method#unitMenu#0;class#Main#0" expanded="false" />
                 <element signature="method#deleteUnit#0;class#Main#0" expanded="false" />
                 <element signature="method#editUnit#0;class#Main#0" expanded="false" />
@@ -73,15 +70,15 @@
         <entry file="file://$PROJECT_DIR$/src/Class.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="78" column="28" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
+              <caret line="89" column="48" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1168#1169#0" expanded="true" />
-                <element signature="e#1199#1200#0" expanded="true" />
-                <element signature="e#1247#1248#0" expanded="true" />
-                <element signature="e#1287#1288#0" expanded="true" />
-                <element signature="e#1322#1323#0" expanded="true" />
-                <element signature="e#1353#1354#0" expanded="true" />
+                <element signature="e#1316#1317#0" expanded="true" />
+                <element signature="e#1347#1348#0" expanded="true" />
+                <element signature="e#1395#1396#0" expanded="true" />
+                <element signature="e#1435#1436#0" expanded="true" />
+                <element signature="e#1470#1471#0" expanded="true" />
+                <element signature="e#1501#1502#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -624,12 +621,11 @@
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
-            <element signature="method#classMenu#0;class#Main#0" expanded="false" />
+            <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
             <element signature="method#deleteClass#0;class#Main#0" expanded="false" />
             <element signature="method#editClass#0;class#Main#0" expanded="false" />
             <element signature="method#viewClass#0;class#Main#0" expanded="false" />
-            <element signature="method#createClass#0;class#Main#0" expanded="false" />
             <element signature="method#unitMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteUnit#0;class#Main#0" expanded="false" />
             <element signature="method#editUnit#0;class#Main#0" expanded="false" />
@@ -682,12 +678,12 @@
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1168#1169#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1435#1436#0" expanded="true" />
+            <element signature="e#1470#1471#0" expanded="true" />
+            <element signature="e#1501#1502#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -700,12 +696,11 @@
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
-            <element signature="method#classMenu#0;class#Main#0" expanded="false" />
+            <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
             <element signature="method#deleteClass#0;class#Main#0" expanded="false" />
             <element signature="method#editClass#0;class#Main#0" expanded="false" />
             <element signature="method#viewClass#0;class#Main#0" expanded="false" />
-            <element signature="method#createClass#0;class#Main#0" expanded="false" />
             <element signature="method#unitMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteUnit#0;class#Main#0" expanded="false" />
             <element signature="method#editUnit#0;class#Main#0" expanded="false" />
@@ -766,12 +761,12 @@
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1168#1169#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1435#1436#0" expanded="true" />
+            <element signature="e#1470#1471#0" expanded="true" />
+            <element signature="e#1501#1502#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -784,12 +779,11 @@
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
-            <element signature="method#classMenu#0;class#Main#0" expanded="false" />
+            <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
             <element signature="method#deleteClass#0;class#Main#0" expanded="false" />
             <element signature="method#editClass#0;class#Main#0" expanded="false" />
             <element signature="method#viewClass#0;class#Main#0" expanded="false" />
-            <element signature="method#createClass#0;class#Main#0" expanded="false" />
             <element signature="method#unitMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteUnit#0;class#Main#0" expanded="false" />
             <element signature="method#editUnit#0;class#Main#0" expanded="false" />
@@ -850,12 +844,12 @@
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1168#1169#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1435#1436#0" expanded="true" />
+            <element signature="e#1470#1471#0" expanded="true" />
+            <element signature="e#1501#1502#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -868,12 +862,11 @@
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
-            <element signature="method#classMenu#0;class#Main#0" expanded="false" />
+            <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
             <element signature="method#deleteClass#0;class#Main#0" expanded="false" />
             <element signature="method#editClass#0;class#Main#0" expanded="false" />
             <element signature="method#viewClass#0;class#Main#0" expanded="false" />
-            <element signature="method#createClass#0;class#Main#0" expanded="false" />
             <element signature="method#unitMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteUnit#0;class#Main#0" expanded="false" />
             <element signature="method#editUnit#0;class#Main#0" expanded="false" />
@@ -918,12 +911,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1168#1169#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1435#1436#0" expanded="true" />
+            <element signature="e#1470#1471#0" expanded="true" />
+            <element signature="e#1501#1502#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -936,12 +929,11 @@
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
-            <element signature="method#classMenu#0;class#Main#0" expanded="false" />
+            <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
             <element signature="method#deleteClass#0;class#Main#0" expanded="false" />
             <element signature="method#editClass#0;class#Main#0" expanded="false" />
             <element signature="method#viewClass#0;class#Main#0" expanded="false" />
-            <element signature="method#createClass#0;class#Main#0" expanded="false" />
             <element signature="method#unitMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteUnit#0;class#Main#0" expanded="false" />
             <element signature="method#editUnit#0;class#Main#0" expanded="false" />
@@ -986,12 +978,12 @@
           <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1168#1169#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1435#1436#0" expanded="true" />
+            <element signature="e#1470#1471#0" expanded="true" />
+            <element signature="e#1501#1502#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1004,12 +996,11 @@
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
-            <element signature="method#classMenu#0;class#Main#0" expanded="false" />
+            <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
             <element signature="method#deleteClass#0;class#Main#0" expanded="false" />
             <element signature="method#editClass#0;class#Main#0" expanded="false" />
             <element signature="method#viewClass#0;class#Main#0" expanded="false" />
-            <element signature="method#createClass#0;class#Main#0" expanded="false" />
             <element signature="method#unitMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteUnit#0;class#Main#0" expanded="false" />
             <element signature="method#editUnit#0;class#Main#0" expanded="false" />
@@ -1054,12 +1045,12 @@
           <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1168#1169#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1435#1436#0" expanded="true" />
+            <element signature="e#1470#1471#0" expanded="true" />
+            <element signature="e#1501#1502#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1072,12 +1063,11 @@
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
-            <element signature="method#classMenu#0;class#Main#0" expanded="false" />
+            <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
             <element signature="method#deleteClass#0;class#Main#0" expanded="false" />
             <element signature="method#editClass#0;class#Main#0" expanded="false" />
             <element signature="method#viewClass#0;class#Main#0" expanded="false" />
-            <element signature="method#createClass#0;class#Main#0" expanded="false" />
             <element signature="method#unitMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteUnit#0;class#Main#0" expanded="false" />
             <element signature="method#editUnit#0;class#Main#0" expanded="false" />
@@ -1116,12 +1106,11 @@
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
-            <element signature="method#classMenu#0;class#Main#0" expanded="false" />
+            <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
             <element signature="method#deleteClass#0;class#Main#0" expanded="false" />
             <element signature="method#editClass#0;class#Main#0" expanded="false" />
             <element signature="method#viewClass#0;class#Main#0" expanded="false" />
-            <element signature="method#createClass#0;class#Main#0" expanded="false" />
             <element signature="method#unitMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteUnit#0;class#Main#0" expanded="false" />
             <element signature="method#editUnit#0;class#Main#0" expanded="false" />
@@ -1160,12 +1149,11 @@
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
-            <element signature="method#classMenu#0;class#Main#0" expanded="false" />
+            <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
             <element signature="method#deleteClass#0;class#Main#0" expanded="false" />
             <element signature="method#editClass#0;class#Main#0" expanded="false" />
             <element signature="method#viewClass#0;class#Main#0" expanded="false" />
-            <element signature="method#createClass#0;class#Main#0" expanded="false" />
             <element signature="method#unitMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteUnit#0;class#Main#0" expanded="false" />
             <element signature="method#editUnit#0;class#Main#0" expanded="false" />
@@ -1295,33 +1283,32 @@
     <entry file="file://$PROJECT_DIR$/src/Class.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="28" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
+          <caret line="89" column="48" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1168#1169#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1435#1436#0" expanded="true" />
+            <element signature="e#1470#1471#0" expanded="true" />
+            <element signature="e#1501#1502#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6637168">
-          <caret line="171" column="41" selection-start-line="171" selection-start-column="41" selection-end-line="171" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.6924779">
+          <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
           <folding>
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
-            <element signature="method#classMenu#0;class#Main#0" expanded="false" />
+            <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
             <element signature="method#deleteClass#0;class#Main#0" expanded="false" />
             <element signature="method#editClass#0;class#Main#0" expanded="false" />
             <element signature="method#viewClass#0;class#Main#0" expanded="false" />
-            <element signature="method#createClass#0;class#Main#0" expanded="false" />
             <element signature="method#unitMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteUnit#0;class#Main#0" expanded="false" />
             <element signature="method#editUnit#0;class#Main#0" expanded="false" />
