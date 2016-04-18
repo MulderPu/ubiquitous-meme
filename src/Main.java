@@ -16,6 +16,7 @@ public class Main implements Serializable {
     static  ArrayList<Student> studentList = new ArrayList<>();
     static  ArrayList<Unit> unitList = new ArrayList<>();
     static  ArrayList<Class> classList = new ArrayList<>();
+    static  ArrayList<Assessment> assessmentList = new ArrayList<>();
     static boolean loop = true;
 
     public static void main(String[] args) {
@@ -92,13 +93,13 @@ public class Main implements Serializable {
                     createAssessment();
                     break;
                 case 2:
-//                    viewAssessment();
+                    viewAssessment();
                     break;
                 case 3:
-//                    editAssessment();
+                    editAssessment();
                     break;
                 case 4:
-//                    deleteAssessment();
+                    deleteAssessment();
                     break;
                 case 0:
                     //Back Point
@@ -109,8 +110,305 @@ public class Main implements Serializable {
         }
     }
 
+    private static void deleteAssessment() {
+        //read assessment file and store in arraylist
+        readAssessmentFile();
+
+        while (loop){
+            System.out.println("Enter assessment name: ");
+            String inputName = input.nextLine();
+
+            for (int i = 0; i < assessmentList.size(); i++) {
+                if (assessmentList.get(i).getName().equals(inputName)) {
+                    assessmentList.get(i).printAssessmentDetails();
+                }
+            }
+
+            System.out.println("Assessment detail will not show if the assessment does not exist.");
+            System.out.println("Confirm delete assessment? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")){
+                System.out.println("Enter assessment name again: ");
+                String assessmentName = input.nextLine();
+                System.out.println("Enter assessment weight : ");
+                String assessmentWeight = input.nextLine();
+
+                for (int i = 0; i < assessmentList.size(); i++) {
+                    if (assessmentList.get(i).getName().equals(assessmentName) && assessmentList.get(i).getWeight().equals(assessmentWeight)) {
+                        assessmentList.remove(i);
+                        System.out.println("Assessment had been removed.");
+                    }
+                }
+            }
+
+            //re-write assessment file for the changes made
+            writeAssessmentFile();
+
+            System.out.println("Do you want to continue delete assessment? [y/n]");
+            String result = input.next();
+            input.nextLine();
+
+            if(result.equals("n")){
+                break;
+            }
+            else{
+                loop=true;
+            }
+        }
+    }
+
+    private static void editAssessment() {
+        //read assessment file and store in arraylist
+        readAssessmentFile();
+
+        while(loop) {
+            System.out.println("Enter assessment name: ");
+            String inputName = input.nextLine();
+
+            for (int i = 0; i < assessmentList.size(); i++) {
+                if (assessmentList.get(i).getName().equals(inputName)) {
+                    assessmentList.get(i).printAssessmentDetails();
+                }
+            }
+
+            System.out.println("Assessment detail will not show if the assessment does not exist.");
+            System.out.println("Confirm edit this assessment? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")){
+                int cont = 0;
+                while (cont != 3) {
+                    System.out.println("============================================================");
+                    System.out.println("1) Edit Name");
+                    System.out.println("2) Edit Weight");
+                    System.out.println("3) Back");
+                    System.out.println();
+                    System.out.println("Select number: ");
+
+                    try {
+                        cont = input.nextInt();
+                        input.nextLine();
+                    } catch (Exception e) {
+                        input.nextLine();
+                        System.out.println(e);
+                    }
+
+                    switch (cont) {
+                        case 1:
+                            System.out.println("============================================================");
+                            System.out.println("Old Name: ");
+                            String oldName = input.nextLine();
+                            System.out.println("New Name: ");
+                            String newName = input.nextLine();
+                            for (int i = 0; i < assessmentList.size(); i++) {
+                                if (assessmentList.get(i).getName().equals(oldName)) {
+                                    assessmentList.get(i).setName(newName);
+                                }
+                            }
+                            break;
+                        case 2:
+                            System.out.println("============================================================");
+                            System.out.println("Old Weight: ");
+                            String oldWeight = input.nextLine();
+                            System.out.println("New Weight: ");
+                            String newWeight = input.nextLine();
+                            for (int i = 0; i < assessmentList.size(); i++) {
+                                if (assessmentList.get(i).getWeight().equals(oldWeight)) {
+                                    assessmentList.get(i).setWeight(newWeight);
+                                }
+                            }
+                            break;
+                        case 3:
+                            //Back Point
+                            break;
+                        default:
+                            System.out.println("Invalid Input");
+                    }
+                }
+            }
+            System.out.println("Assessment had been updated.");
+            //re-write assessment file for the changes
+            writeClassFile();
+
+            System.out.println("Do you want to continue edit assessment? [y/n]");
+            String result = input.next();
+            input.nextLine();
+
+            if(result.equals("n")){
+                break;
+            }
+            else{
+                loop=true;
+            }
+        }
+    }
+
+    private static void viewAssessment() {
+        //read file and store in arraylist
+        readAssessmentFile();
+
+        while(loop){
+            System.out.println("============================================================");
+            System.out.println("Lists of assessment");
+            System.out.println("============================================================");
+
+            //loop for assessment list
+            for (int i = 0; i < assessmentList.size(); i++) {
+                System.out.println(i + "." + assessmentList.get(i).getName());
+            }
+
+            //show specific assessment details
+            System.out.println("Enter assessment name for more info: ['exit' to back]");
+            String inputName = input.nextLine();
+
+            if (inputName.equals("exit")) {
+                break;
+            } else {
+                System.out.println("============================================================");
+                System.out.println("Assessment info");
+                System.out.println("============================================================");
+                for (int i = 0; i < assessmentList.size(); i++) {
+                    if (assessmentList.get(i).getName().equals(inputName)) {
+                        assessmentList.get(i).printAssessmentDetails();
+                    }
+                }
+                pressEnterKeyToContinue();
+            }
+        }
+    }
+
     private static void createAssessment() {
 
+        readAssessmentFile();
+
+        while(loop) {
+            System.out.println("Do you wish to create an assessment? [y/n]");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")) {
+                int cont = 0;
+                while (cont != 6) {
+                    System.out.println("============================================================");
+                    System.out.println("1) Create Lab Exercise");
+                    System.out.println("2) Create Assignment");
+                    System.out.println("3) Create Test");
+                    System.out.println("4) Create Quiz");
+                    System.out.println("5) Create Final Exam");
+                    System.out.println("6) Back");
+                    System.out.println();
+                    System.out.println("Select number: ");
+
+                    try {
+                        cont = input.nextInt();
+                        input.nextLine();
+                    } catch (Exception e) {
+                        input.nextLine();
+                        System.out.println(e);
+                    }
+
+                    switch (cont) {
+                        case 1:
+                            System.out.println("============================================================");
+                            System.out.println("Please enter the lab exercise information:");
+                            System.out.println("Name :");
+                            String inputName = input.nextLine();
+                            System.out.println("Weight :");
+                            String inputWeight = input.nextLine();
+
+                            //create lab, add to arraylist
+                            Lab newLab = new Lab(inputName, inputWeight);
+
+                            if (!inputName.equals("") || !inputWeight.equals("")) {
+                                assessmentList.add(newLab);
+                            }
+                            break;
+                        case 2:
+                            System.out.println("============================================================");
+                            System.out.println("Please enter the assignment information:");
+                            System.out.println("Name :");
+                            String inputAssignmentName = input.nextLine();
+                            System.out.println("Weight :");
+                            String inputAssignmentWeight = input.nextLine();
+
+                            //create assignment, add to arraylist
+                            Assignment newAssignment = new Assignment(inputAssignmentName, inputAssignmentWeight);
+
+                            if (!inputAssignmentName.equals("") || !inputAssignmentWeight.equals("")) {
+                                assessmentList.add(newAssignment);
+                            }
+                            break;
+                        case 3:
+                            System.out.println("============================================================");
+                            System.out.println("Please enter the test information:");
+                            System.out.println("Name :");
+                            String inputTestName = input.nextLine();
+                            System.out.println("Weight :");
+                            String inputTestWeight = input.nextLine();
+
+                            //create test, add to arraylist
+                            Test newTest = new Test(inputTestName, inputTestWeight);
+
+                            if (!inputTestName.equals("") || !inputTestWeight.equals("")) {
+                                assessmentList.add(newTest);
+                            }
+                            break;
+                        case 4:
+                            System.out.println("============================================================");
+                            System.out.println("Please enter the quiz information:");
+                            System.out.println("Name :");
+                            String inputQuizName = input.nextLine();
+                            System.out.println("Weight :");
+                            String inputQuizWeight = input.nextLine();
+
+                            //create quiz, add to arraylist
+                            Quiz newQuiz = new Quiz(inputQuizName, inputQuizWeight);
+
+                            if (!inputQuizName.equals("") || !inputQuizWeight.equals("")) {
+                                assessmentList.add(newQuiz);
+                            }
+                            break;
+                        case 5:
+                            System.out.println("============================================================");
+                            System.out.println("Please enter the final exam information:");
+                            System.out.println("Name :");
+                            String inputFinalName = input.nextLine();
+                            System.out.println("Weight :");
+                            String inputFinalWeight = input.nextLine();
+
+                            //create final, add to arraylist
+                            Final newFinal = new Final(inputFinalName, inputFinalWeight);
+
+                            if (!inputFinalName.equals("") || !inputFinalWeight.equals("")) {
+                                assessmentList.add(newFinal);
+                            }
+                            break;
+                        case 6:
+                            //Back Point
+                            break;
+                        default:
+                            System.out.println("Invalid Input");
+                    }
+                }
+            }
+
+            //store arraylist in txt file
+            writeAssessmentFile();
+
+            System.out.println("Assessment had been created.");
+            System.out.println("Do you want to continue create assessment? [y/n]");
+            String result = input.next();
+
+            if(result.equals("n")){
+                break;
+            }
+            else{
+                loop=true;
+            }
+        }
     }
 
     private static void classMenu() {
@@ -162,7 +460,7 @@ public class Main implements Serializable {
                     removeStudFromClass();
                     break;
                 case 8:
-
+                    addAssessmentToClass();
                     break;
                 case 0:
                     //Back Point
@@ -171,6 +469,10 @@ public class Main implements Serializable {
                     System.out.println("Invalid Input");
             }
         }
+    }
+
+    private static void addAssessmentToClass() {
+
     }
 
     private static void removeStudFromClass() {
@@ -497,7 +799,7 @@ public class Main implements Serializable {
                 System.out.println(i + "." + classList.get(i).getName());
             }
 
-            //show specific unit details
+            //show specific class details
             System.out.println("Enter class name for more info: ['exit' to back]");
             String inputName = input.nextLine();
 
@@ -1180,6 +1482,30 @@ public class Main implements Serializable {
             ObjectOutputStream oos3 = new ObjectOutputStream(fos3);
             oos3.writeObject(classList);
             oos3.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //read class file
+    private static void readAssessmentFile(){
+        try {
+            FileInputStream fis4 = new FileInputStream("assessment.txt");
+            ObjectInputStream ois4 = new ObjectInputStream(fis4);
+            assessmentList = (ArrayList) ois4.readObject();
+            ois4.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //write class file
+    private static void writeAssessmentFile(){
+        try {
+            FileOutputStream fos4 = new FileOutputStream("assessment.txt");
+            ObjectOutputStream oos4 = new ObjectOutputStream(fos4);
+            oos4.writeObject(assessmentList);
+            oos4.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

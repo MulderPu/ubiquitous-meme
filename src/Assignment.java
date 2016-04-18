@@ -3,7 +3,9 @@
  * Created by Mulder on 4/14/2016.
  */
 public class Assignment extends Assessment {
-    public Assignment(){
-
+    public Assignment(String name, String weight){
+        super(name, weight);
     }
+
+
 }
