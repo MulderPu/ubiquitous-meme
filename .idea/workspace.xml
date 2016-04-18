@@ -4,12 +4,8 @@
     <list default="true" id="91c8e3b5-e75a-4460-8689-334c9ed65665" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assessment.java" afterPath="$PROJECT_DIR$/src/Assessment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment.java" afterPath="$PROJECT_DIR$/src/Assignment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Final.java" afterPath="$PROJECT_DIR$/src/Final.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Lab.java" afterPath="$PROJECT_DIR$/src/Lab.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Class.java" afterPath="$PROJECT_DIR$/src/Class.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Quiz.java" afterPath="$PROJECT_DIR$/src/Quiz.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test.java" afterPath="$PROJECT_DIR$/src/Test.java" />
     </list>
     <ignored path="Java Assignment 1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,15 +30,17 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6637168">
-              <caret line="282" column="43" selection-start-line="282" selection-start-column="43" selection-end-line="282" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.27765486">
+              <caret line="468" column="56" selection-start-line="468" selection-start-column="56" selection-end-line="468" selection-end-column="56" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
                 <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
                 <element signature="method#deleteAssessment#0;class#Main#0" expanded="false" />
                 <element signature="method#editAssessment#0;class#Main#0" expanded="false" />
                 <element signature="method#viewAssessment#0;class#Main#0" expanded="false" />
                 <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
+                <element signature="method#addAssessmentToClass#0;class#Main#0" expanded="false" />
                 <element signature="method#removeStudFromClass#0;class#Main#0" expanded="false" />
                 <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
                 <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
@@ -77,9 +75,11 @@
         <entry file="file://$PROJECT_DIR$/src/Class.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="74" column="49" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#removeStudent#0;class#Class#0" expanded="false" />
+                <element signature="method#getStudentList#0;class#Class#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -89,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/src/Assessment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+              <caret line="50" column="79" selection-start-line="50" selection-start-column="79" selection-end-line="50" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#496#497#0" expanded="true" />
@@ -138,14 +138,14 @@
         <option value="C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/io/ObjectStreamClass.java" />
         <option value="$PROJECT_DIR$/class.txt" />
         <option value="$PROJECT_DIR$/src/Unit.java" />
-        <option value="$PROJECT_DIR$/src/Class.java" />
         <option value="$PROJECT_DIR$/src/Lab.java" />
         <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/Assignment.java" />
         <option value="$PROJECT_DIR$/src/Final.java" />
         <option value="$PROJECT_DIR$/src/Quiz.java" />
-        <option value="$PROJECT_DIR$/src/Assessment.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Assessment.java" />
+        <option value="$PROJECT_DIR$/src/Class.java" />
       </list>
     </option>
   </component>
@@ -648,6 +648,8 @@
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#removeStudent#0;class#Class#0" expanded="false" />
+            <element signature="method#getStudentList#0;class#Class#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -657,12 +659,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#editAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#viewAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
+            <element signature="method#addAssessmentToClass#0;class#Main#0" expanded="false" />
             <element signature="method#removeStudFromClass#0;class#Main#0" expanded="false" />
             <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
@@ -746,6 +750,8 @@
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#removeStudent#0;class#Class#0" expanded="false" />
+            <element signature="method#getStudentList#0;class#Class#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -755,12 +761,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#editAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#viewAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
+            <element signature="method#addAssessmentToClass#0;class#Main#0" expanded="false" />
             <element signature="method#removeStudFromClass#0;class#Main#0" expanded="false" />
             <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
@@ -844,6 +852,8 @@
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#removeStudent#0;class#Class#0" expanded="false" />
+            <element signature="method#getStudentList#0;class#Class#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -853,12 +863,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#editAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#viewAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
+            <element signature="method#addAssessmentToClass#0;class#Main#0" expanded="false" />
             <element signature="method#removeStudFromClass#0;class#Main#0" expanded="false" />
             <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
@@ -912,6 +924,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#removeStudent#0;class#Class#0" expanded="false" />
+            <element signature="method#getStudentList#0;class#Class#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -921,12 +935,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#editAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#viewAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
+            <element signature="method#addAssessmentToClass#0;class#Main#0" expanded="false" />
             <element signature="method#removeStudFromClass#0;class#Main#0" expanded="false" />
             <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
@@ -980,6 +996,8 @@
           <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#removeStudent#0;class#Class#0" expanded="false" />
+            <element signature="method#getStudentList#0;class#Class#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -989,12 +1007,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#editAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#viewAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
+            <element signature="method#addAssessmentToClass#0;class#Main#0" expanded="false" />
             <element signature="method#removeStudFromClass#0;class#Main#0" expanded="false" />
             <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
@@ -1048,6 +1068,8 @@
           <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#removeStudent#0;class#Class#0" expanded="false" />
+            <element signature="method#getStudentList#0;class#Class#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1057,12 +1079,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#editAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#viewAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
+            <element signature="method#addAssessmentToClass#0;class#Main#0" expanded="false" />
             <element signature="method#removeStudFromClass#0;class#Main#0" expanded="false" />
             <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
@@ -1104,12 +1128,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#editAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#viewAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
+            <element signature="method#addAssessmentToClass#0;class#Main#0" expanded="false" />
             <element signature="method#removeStudFromClass#0;class#Main#0" expanded="false" />
             <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
@@ -1151,12 +1177,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#editAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#viewAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
+            <element signature="method#addAssessmentToClass#0;class#Main#0" expanded="false" />
             <element signature="method#removeStudFromClass#0;class#Main#0" expanded="false" />
             <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />
@@ -1242,17 +1270,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Unit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="85" selection-start-line="40" selection-start-column="85" selection-end-line="40" selection-end-column="85" />
-          <folding>
-            <element signature="e#803#804#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Semester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5248619">
@@ -1319,7 +1336,7 @@
     <entry file="file://$PROJECT_DIR$/src/Assessment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+          <caret line="50" column="79" selection-start-line="50" selection-start-column="79" selection-end-line="50" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#496#497#0" expanded="true" />
@@ -1338,27 +1355,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Unit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41924778">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="e#803#804#0" expanded="true" />
+            <element signature="e#897#898#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Class.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <caret line="74" column="49" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#removeStudent#0;class#Class#0" expanded="false" />
+            <element signature="method#getStudentList#0;class#Class#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6637168">
-          <caret line="282" column="43" selection-start-line="282" selection-start-column="43" selection-end-line="282" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.27765486">
+          <caret line="468" column="56" selection-start-line="468" selection-start-column="56" selection-end-line="468" selection-end-column="56" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#homeMenu#0;class#Main#0" expanded="false" />
             <element signature="method#assessmentMenu#0;class#Main#0" expanded="false" />
             <element signature="method#deleteAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#editAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#viewAssessment#0;class#Main#0" expanded="false" />
             <element signature="method#createAssessment#0;class#Main#0" expanded="false" />
+            <element signature="method#addAssessmentToClass#0;class#Main#0" expanded="false" />
             <element signature="method#removeStudFromClass#0;class#Main#0" expanded="false" />
             <element signature="method#addStudToClass#0;class#Main#0" expanded="false" />
             <element signature="method#addUnitToClass#0;class#Main#0" expanded="false" />

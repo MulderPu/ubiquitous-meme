@@ -72,6 +72,7 @@ public class Class implements Serializable{
     public void printClassDetails(){
         System.out.println("Class Name :" + this.getName() + "\n" + "Class Code :" + this.getCode());
         System.out.println(this.getUnit());
+        System.out.println(this.getAssessment());
         System.out.println("List of students :" + "\n");
         for(int i =0; i < studentList.size(); i++){
             System.out.println("\t" + i + "." + studentList.get(i).getName());

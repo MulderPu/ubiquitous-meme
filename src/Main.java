@@ -1,9 +1,5 @@
-import com.sun.org.apache.xpath.internal.SourceTree;
-
-import javax.xml.crypto.Data;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -423,6 +419,7 @@ public class Main implements Serializable {
             System.out.println("6) Add Student to Class");
             System.out.println("7) Remove Student from Class");
             System.out.println("8) Add Assessment to Class");
+            System.out.println("9) Assign Mark to Student's Assessment");
             System.out.println("0) Back");
             System.out.println();
             System.out.println("Select number: ");
@@ -462,6 +459,9 @@ public class Main implements Serializable {
                 case 8:
                     addAssessmentToClass();
                     break;
+                case 9:
+                    assignMark();
+                    break;
                 case 0:
                     //Back Point
                     break;
@@ -471,8 +471,68 @@ public class Main implements Serializable {
         }
     }
 
-    private static void addAssessmentToClass() {
+    private static void assignMark() {
 
+    }
+
+    private static void addAssessmentToClass() {
+        readClassFile();
+        readAssessmentFile();
+
+        while(loop){
+            System.out.println("Enter class name: ");
+            String inputName = input.nextLine();
+
+            for (int i = 0; i < classList.size(); i++) {
+                if (classList.get(i).getName().equals(inputName)) {
+                    classList.get(i).printClassDetails();
+                }
+            }
+
+            System.out.println("Class detail will not show if the class is not exist.");
+            System.out.println("Confirm add unit to this class? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")){
+                System.out.println("============================================================");
+                System.out.println("Lists of assessment");
+                System.out.println("============================================================");
+
+                //loop for assessment list
+                for (int i = 0; i < assessmentList.size(); i++) {
+                    System.out.println(i + "." + assessmentList.get(i).getName());
+                }
+
+                System.out.println("Enter assessment name you wish to add:");
+                String inputAssessment = input.nextLine();
+
+                for (int i = 0; i < assessmentList.size(); i++) {
+                    if(assessmentList.get(i).getName().equals(inputAssessment)){
+                        for (int j = 0; j < classList.size(); j++) {
+                            if (classList.get(j).getName().equals(inputName)) {
+                                classList.get(j).setAssessment(assessmentList.get(i));
+                            }
+                        }
+                    }
+                }
+            }
+
+            System.out.println("Class had been updated.");
+            //re-write class file for the changes made
+            writeClassFile();
+
+            System.out.println("Do you want to exit? [y/n]");
+            String result = input.next();
+            input.nextLine();
+
+            if(result.equals("y")){
+                break;
+            }
+            else{
+                loop=true;
+            }
+        }
     }
 
     private static void removeStudFromClass() {
