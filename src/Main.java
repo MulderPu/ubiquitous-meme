@@ -15,6 +15,7 @@ public class Main implements Serializable {
     static  ArrayList<Unit> unitList = new ArrayList<>();
     static  ArrayList<Class> classList = new ArrayList<>();
     static  ArrayList<Assessment> assessmentList = new ArrayList<>();
+    static  ArrayList<Assessment> assessmentList2 = new ArrayList<>();
     static ArrayList<Submission> submissionsList = new ArrayList<>();
     static boolean loop = true;
 
@@ -281,7 +282,7 @@ public class Main implements Serializable {
 
     private static void createAssessment() {
 
-//        readAssessmentFile();
+        readAssessmentFile();
 
         while(loop) {
             System.out.println("Do you wish to create an assessment? [y/n]");
@@ -424,7 +425,7 @@ public class Main implements Serializable {
             System.out.println("8) Add Assessment to Class");
             System.out.println("9) Assign Mark to Student's Assessment");
             System.out.println("10) View Student's Assessment Mark");
-            System.out.println("11) View All Student's Assessment Mark");
+            System.out.println("11) View Summary Report");
             System.out.println("0) Back");
             System.out.println();
             System.out.println("Select number: ");
@@ -471,7 +472,7 @@ public class Main implements Serializable {
                     ViewStudMark();
                     break;
                 case 11:
-                    ViewAllStudMark();
+                    ViewSummaryReport();
                     break;
                 case 0:
                     //Back Point
@@ -482,7 +483,7 @@ public class Main implements Serializable {
         }
     }
 
-    private static void ViewAllStudMark() {
+    private static void ViewSummaryReport() {
 
     }
 
@@ -524,7 +525,7 @@ public class Main implements Serializable {
                 for(int i =0; i < assessmentList.size() ; i++){
                     if(assessmentList.get(i).getName().equals(inputAss)){
                         for(int j =0; j < submissionsList.size();j++) {
-                            System.out.println("Student :" + submissionsList.get(j).getName() + "\n" + "Mark: " + submissionsList.get(j).getMark());
+                            System.out.println("Student :" + submissionsList.get(j).getName()+ "\t" + " Mark: " + submissionsList.get(j).getMark());
                         }
                     }
                 }
@@ -650,17 +651,17 @@ public class Main implements Serializable {
 
                 for (int i = 0; i < classList.size(); i++) {
                     studentList = classList.get(i).getStudentList();
-                    assessmentList = classList.get(i).getAssessmentList();
+                    assessmentList2 = classList.get(i).getAssessmentList();
                 }
 
-                for(int i =0; i < assessmentList.size() ; i++){
-                    if(assessmentList.get(i).getName().equals(inputAssessment)){
+                for(int i =0; i < assessmentList2.size() ; i++){
+                    if(assessmentList2.get(i).getName().equals(inputAssessment)){
                         for(int j = 0; j < studentList.size(); j++){
                             String studName = studentList.get(j).getName();
                             String studId = studentList.get(j).getId();
 
                             Submission newSub = new Submission(studName, studId);
-                            assessmentList.get(i).setSubmission(newSub);
+                            assessmentList2.get(i).setSubmission(newSub);
                         }
                     }
                 }
@@ -1028,7 +1029,7 @@ public class Main implements Serializable {
 
     private static void createClass() {
         //read file and store in arraylist
-//        readClassFile();
+        readClassFile();
 
         while(loop) {
             System.out.println("Do you wish to create a class? [y/n]");
