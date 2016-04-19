@@ -484,7 +484,59 @@ public class Main implements Serializable {
     }
 
     private static void ViewSummaryReport() {
+        readClassFile();
 
+        while (loop) {
+            System.out.println("Enter class name: ");
+            String inputName = input.nextLine();
+
+            for (int i = 0; i < classList.size(); i++) {
+                if (classList.get(i).getName().equals(inputName)) {
+                    classList.get(i).printClassDetails();
+                }
+            }
+
+            System.out.println("Class detail will not show if the class is not exist.");
+            System.out.println("Confirm view summary report of this class? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")) {
+                for (int i = 0; i < classList.size(); i++) {
+                    studentList = classList.get(i).getStudentList();
+                    assessmentList = classList.get(i).getAssessmentList();
+                }
+
+                System.out.println("Enter assessment name you want to view student's mark?");
+                String inputAss = input.nextLine();
+//                System.out.println("Name of the student: ");
+//                String inputStudName = input.nextLine();
+
+
+                for(int i =0; i < assessmentList.size() ; i++){
+                    submissionsList = assessmentList.get(i).getSubmissionsList();
+                }
+
+                for(int i =0; i < assessmentList.size() ; i++){
+                    if(assessmentList.get(i).getName().equals(inputAss)){
+                        for(int j =0; j < submissionsList.size();j++) {
+                            System.out.println("Student :" + submissionsList.get(j).getName()+ "\t" + " Mark: " + submissionsList.get(j).getMark());
+                        }
+                    }
+                }
+            }
+
+            pressEnterKeyToContinue();
+            System.out.println("Do you want to continue view student mark? [y/n]");
+            String result = input.next();
+            input.nextLine();
+
+            if (result.equals("n")) {
+                break;
+            } else {
+                loop = true;
+            }
+        }
     }
 
     private static void ViewStudMark() {

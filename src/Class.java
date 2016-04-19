@@ -104,4 +104,8 @@ public class Class implements Serializable{
         }
         System.out.println();
     }
+
+    public void printSummaryReport(){
+
+    }
 }
