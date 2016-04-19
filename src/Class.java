@@ -1,4 +1,4 @@
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +13,6 @@ public class Class implements Serializable{
     private int year;
     private ArrayList<Student> studentList = new ArrayList<>();
     private ArrayList<Assessment> assessmentList = new ArrayList<>();
-    private Assessment assessment;
 
     public Class(){}
 
@@ -54,10 +53,8 @@ public class Class implements Serializable{
         return unit;
     }
 
-    public void getStudentList() {
-        for(int i =0; i < studentList.size(); i++){
-            System.out.println( i + "." + studentList.get(i).getName());
-        }
+    public ArrayList<Student> getStudentList() {
+        return studentList;
     }
 
     public void setUnit(Unit unit) {
@@ -68,34 +65,8 @@ public class Class implements Serializable{
         this.assessmentList.add(assessment);
     }
 
-    public void getAssessmentList() {
-        for(int i =0; i < assessmentList.size(); i++){
-            System.out.println( i + "." + assessmentList.get(i).getName());
-        }
-    }
-
-    public void addMarkToAssessment(String inputAss, String inputStudName, int inputStudMark){
-        for(int i = 0; i < assessmentList.size(); i++){
-            if(assessmentList.get(i).getName().equals(inputAss)){
-                for(int j = 0; j<studentList.size(); j++){
-                    if(studentList.get(j).getName().equals(inputStudName)){
-                        assessmentList.get(i).setMark(inputStudMark);
-                    }
-                }
-            }
-        }
-    }
-
-    public void viewStudentMark(String inputAss, String inputStudName){
-        for(int i = 0; i < assessmentList.size(); i++){
-            if(assessmentList.get(i).getName().equals(inputAss)){
-                for(int j = 0; j<studentList.size(); j++){
-                    if(studentList.get(j).getName().equals(inputStudName)){
-                        System.out.println("Mark :" + assessmentList.get(i).getMark() );
-                    }
-                }
-            }
-        }
+    public ArrayList<Assessment> getAssessmentList() {
+        return assessmentList;
     }
 
     public void printClassDetails(){

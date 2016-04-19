@@ -8,14 +8,12 @@ import java.util.ArrayList;
 public class Assessment implements Serializable {
 
     private String name;
-//    private ArrayList<Integer> mark = new ArrayList<>();
-    private int mark;
+    private ArrayList<Submission> submissionsList = new ArrayList<>();
     private String weight;
 
     public Assessment(String name, String weight){
         this.name = name;
         this.weight = weight;
-        this.mark = 0;
     }
 
     public void setName(String name) {
@@ -26,10 +24,6 @@ public class Assessment implements Serializable {
         this.weight = weight;
     }
 
-    public void setMark(int mark) {
-        this.mark = mark;
-    }
-
     public String getName() {
         return name;
     }
@@ -38,12 +32,13 @@ public class Assessment implements Serializable {
         return weight;
     }
 
-    public int getMark() {
-        return mark;
-    }
-
     public void printAssessmentDetails(){
         System.out.println("Name: " + getName() + "\n" + "Weight: " + getWeight() + "\n");
+        System.out.println("List of submissions :");
+        for(int i =0; i < submissionsList.size(); i++){
+            System.out.println("\t" + i + "." + submissionsList.get(i).getName());
+        }
+        System.out.println();
     }
 
     @Override
@@ -56,4 +51,11 @@ public class Assessment implements Serializable {
 
     }
 
+    public void setSubmission(Submission submission){
+        this.submissionsList.add(submission);
+    }
+
+    public ArrayList<Submission> getSubmissionsList() {
+        return submissionsList;
+    }
 }

@@ -15,11 +15,7 @@ public class Main implements Serializable {
     static  ArrayList<Unit> unitList = new ArrayList<>();
     static  ArrayList<Class> classList = new ArrayList<>();
     static  ArrayList<Assessment> assessmentList = new ArrayList<>();
-    static  ArrayList<Integer> labMarkList = new ArrayList<>();
-    static  ArrayList<Integer> assignmentMarkList = new ArrayList<>();
-    static  ArrayList<Integer> testMarkList = new ArrayList<>();
-    static  ArrayList<Integer> quizMarkList = new ArrayList<>();
-    static  ArrayList<Integer> finalMarkList = new ArrayList<>();
+    static ArrayList<Submission> submissionsList = new ArrayList<>();
     static boolean loop = true;
 
     public static void main(String[] args) {
@@ -285,7 +281,7 @@ public class Main implements Serializable {
 
     private static void createAssessment() {
 
-        readAssessmentFile();
+//        readAssessmentFile();
 
         while(loop) {
             System.out.println("Do you wish to create an assessment? [y/n]");
@@ -492,6 +488,7 @@ public class Main implements Serializable {
 
     private static void ViewStudMark() {
         readClassFile();
+        readAssessmentFile();
 
         while (loop) {
             System.out.println("Enter class name: ");
@@ -509,14 +506,26 @@ public class Main implements Serializable {
             input.nextLine();
 
             if (ans.equals("y")) {
-                System.out.println("Name of assessment:");
-                String inputAss = input.nextLine();
-                System.out.println("Student Name: ");
-                String inputStudName = input.nextLine();
-
                 for (int i = 0; i < classList.size(); i++) {
-                    if (classList.get(i).getName().equals(inputName)) {
-                        classList.get(i).viewStudentMark(inputAss, inputStudName);
+                    studentList = classList.get(i).getStudentList();
+                    assessmentList = classList.get(i).getAssessmentList();
+                }
+
+                System.out.println("Enter assessment name you want to view student's mark?");
+                String inputAss = input.nextLine();
+//                System.out.println("Name of the student: ");
+//                String inputStudName = input.nextLine();
+
+
+                for(int i =0; i < assessmentList.size() ; i++){
+                    submissionsList = assessmentList.get(i).getSubmissionsList();
+                }
+
+                for(int i =0; i < assessmentList.size() ; i++){
+                    if(assessmentList.get(i).getName().equals(inputAss)){
+                        for(int j =0; j < submissionsList.size();j++) {
+                            System.out.println("Student :" + submissionsList.get(j).getName() + "\n" + "Mark: " + submissionsList.get(j).getMark());
+                        }
                     }
                 }
             }
@@ -524,6 +533,7 @@ public class Main implements Serializable {
             pressEnterKeyToContinue();
             System.out.println("Do you want to continue view student mark? [y/n]");
             String result = input.next();
+            input.nextLine();
 
             if (result.equals("n")) {
                 break;
@@ -534,7 +544,9 @@ public class Main implements Serializable {
     }
 
     private static void assignMark() {
+
         readClassFile();
+        readAssessmentFile();
 
         while (loop) {
             System.out.println("Enter class name: ");
@@ -547,28 +559,47 @@ public class Main implements Serializable {
             }
 
             System.out.println("Class detail will not show if the class is not exist.");
-            System.out.println("Confirm assign student mark from this class? [y/n] ");
+            System.out.println("Confirm assign student's mark from this class? [y/n] ");
             String ans = input.next();
             input.nextLine();
 
             if (ans.equals("y")) {
-                System.out.println("Name of assessment:");
+                for (int i = 0; i < classList.size(); i++) {
+                    studentList = classList.get(i).getStudentList();
+                    assessmentList = classList.get(i).getAssessmentList();
+                }
+
+                System.out.println("Enter assessment name you want to assign mark to the student?");
                 String inputAss = input.nextLine();
-                System.out.println("Student Name: ");
+                System.out.println("Name of the student: ");
                 String inputStudName = input.nextLine();
-                System.out.println("Student Mark: ");
-                int inputStudMark = input.nextInt();
+                System.out.println("Mark of the student: ");
+                double inputStudMark = input.nextInt();
                 input.nextLine();
 
-                for (int i = 0; i < classList.size(); i++) {
-                    if (classList.get(i).getName().equals(inputName)) {
-                        classList.get(i).addMarkToAssessment(inputAss, inputStudName, inputStudMark);
+                for(int i =0; i < assessmentList.size() ; i++){
+                    submissionsList = assessmentList.get(i).getSubmissionsList();
+                }
+
+                for(int i =0; i < assessmentList.size() ; i++){
+                    if(assessmentList.get(i).getName().equals(inputAss)){
+                        for(int j =0; j < studentList.size(); j++){
+                            if(studentList.get(j).getName().equals(inputStudName)){
+                                for(int k =0; k < submissionsList.size(); k++){
+                                    if(submissionsList.get(k).getName().equals(studentList.get(j).getName()) && submissionsList.get(k).getId().equals(studentList.get(j).getId()) ){
+                                        submissionsList.get(k).setMark(inputStudMark);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
+
             }
 
             //store arraylist in txt file
             writeClassFile();
+            writeAssessmentFile();
 
             System.out.println("Mark had been assigned.");
             System.out.println("Do you want to continue assign mark to student? [y/n]");
@@ -584,6 +615,7 @@ public class Main implements Serializable {
     }
 
     private static void addAssessmentToClass() {
+
         readClassFile();
         readAssessmentFile();
 
@@ -603,15 +635,6 @@ public class Main implements Serializable {
             input.nextLine();
 
             if (ans.equals("y")){
-                System.out.println("============================================================");
-                System.out.println("Lists of assessment");
-                System.out.println("============================================================");
-
-                //loop for assessment list
-                for (int i = 0; i < assessmentList.size(); i++) {
-                    System.out.println(i + "." + assessmentList.get(i).getName());
-                }
-
                 System.out.println("Enter assessment name you wish to add:");
                 String inputAssessment = input.nextLine();
 
@@ -624,11 +647,29 @@ public class Main implements Serializable {
                         }
                     }
                 }
+
+                for (int i = 0; i < classList.size(); i++) {
+                    studentList = classList.get(i).getStudentList();
+                    assessmentList = classList.get(i).getAssessmentList();
+                }
+
+                for(int i =0; i < assessmentList.size() ; i++){
+                    if(assessmentList.get(i).getName().equals(inputAssessment)){
+                        for(int j = 0; j < studentList.size(); j++){
+                            String studName = studentList.get(j).getName();
+                            String studId = studentList.get(j).getId();
+
+                            Submission newSub = new Submission(studName, studId);
+                            assessmentList.get(i).setSubmission(newSub);
+                        }
+                    }
+                }
             }
 
             System.out.println("Class had been updated.");
             //re-write class file for the changes made
             writeClassFile();
+            writeAssessmentFile();
 
             System.out.println("Do you want to continue add assessment? [y/n]");
             String result = input.next();
@@ -987,7 +1028,7 @@ public class Main implements Serializable {
 
     private static void createClass() {
         //read file and store in arraylist
-        readClassFile();
+//        readClassFile();
 
         while(loop) {
             System.out.println("Do you wish to create a class? [y/n]");
