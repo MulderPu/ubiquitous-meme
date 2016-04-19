@@ -9,7 +9,10 @@ public class Class implements Serializable{
     private String name;
     private String code;
     private Unit unit;
+    private String sem;
+    private int year;
     private ArrayList<Student> studentList = new ArrayList<>();
+    private ArrayList<Assessment> assessmentList = new ArrayList<>();
     private Assessment assessment;
 
     public Class(){}
@@ -62,20 +65,52 @@ public class Class implements Serializable{
     }
 
     public void setAssessment(Assessment assessment){
-        this.assessment = assessment;
+        this.assessmentList.add(assessment);
     }
 
-    public Assessment getAssessment() {
-        return assessment;
+    public void getAssessmentList() {
+        for(int i =0; i < assessmentList.size(); i++){
+            System.out.println( i + "." + assessmentList.get(i).getName());
+        }
+    }
+
+    public void addMarkToAssessment(String inputAss, String inputStudName, int inputStudMark){
+        for(int i = 0; i < assessmentList.size(); i++){
+            if(assessmentList.get(i).getName().equals(inputAss)){
+                for(int j = 0; j<studentList.size(); j++){
+                    if(studentList.get(j).getName().equals(inputStudName)){
+                        assessmentList.get(i).setMark(inputStudMark);
+                    }
+                }
+            }
+        }
+    }
+
+    public void viewStudentMark(String inputAss, String inputStudName){
+        for(int i = 0; i < assessmentList.size(); i++){
+            if(assessmentList.get(i).getName().equals(inputAss)){
+                for(int j = 0; j<studentList.size(); j++){
+                    if(studentList.get(j).getName().equals(inputStudName)){
+                        System.out.println("Mark :" + assessmentList.get(i).getMark() );
+                    }
+                }
+            }
+        }
     }
 
     public void printClassDetails(){
         System.out.println("Class Name :" + this.getName() + "\n" + "Class Code :" + this.getCode());
         System.out.println(this.getUnit());
-        System.out.println(this.getAssessment());
-        System.out.println("List of students :" + "\n");
+
+        System.out.println("List of assessments :");
+        for(int i =0; i < assessmentList.size(); i++){
+            System.out.println( i + "." + assessmentList.get(i).getName());
+        }
+        System.out.println();
+        System.out.println("List of students :");
         for(int i =0; i < studentList.size(); i++){
             System.out.println("\t" + i + "." + studentList.get(i).getName());
         }
+        System.out.println();
     }
 }

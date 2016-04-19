@@ -7,4 +7,9 @@ public class Quiz extends Assessment {
         super(name, weight);
     }
 
+    @Override
+    public String toString() {
+        return ("Quiz Name:" + this.getName() + "\n" + "Weight :" + this.getWeight());
+    }
+
 }

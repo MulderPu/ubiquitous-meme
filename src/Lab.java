@@ -10,5 +10,9 @@ public class Lab extends Assessment{;
         super(name, weight);
     }
 
+    @Override
+    public String toString() {
+        return ("Lab Name:" + this.getName() + "\n" + "Weight :" + this.getWeight());
+    }
 
 }

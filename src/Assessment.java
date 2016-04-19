@@ -48,7 +48,12 @@ public class Assessment implements Serializable {
 
     @Override
     public String toString() {
-        return ("Assessment Name:" + this.getName() + "\n" + "Assessment Weight :" + this.getWeight());
+        return ("Assessment Name:" + this.getName() + "\n" + "Weight :" + this.getWeight());
+    }
+
+    public void checkMark(int inputMark){
+
+
     }
 
 }

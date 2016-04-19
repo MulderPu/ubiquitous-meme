@@ -6,4 +6,9 @@ public class Test extends Assessment {
     public Test(String name, String weight){
         super(name, weight);
     }
+
+    @Override
+    public String toString() {
+        return ("Test Name:" + this.getName() + "\n" + "Weight :" + this.getWeight());
+    }
 }

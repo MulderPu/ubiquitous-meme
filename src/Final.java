@@ -7,4 +7,8 @@ public class Final extends Assessment {
         super(name, weight);
     }
 
+    @Override
+    public String toString() {
+        return ("Final Name:" + this.getName() + "\n" + "Weight :" + this.getWeight());
+    }
 }

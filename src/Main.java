@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -13,6 +15,11 @@ public class Main implements Serializable {
     static  ArrayList<Unit> unitList = new ArrayList<>();
     static  ArrayList<Class> classList = new ArrayList<>();
     static  ArrayList<Assessment> assessmentList = new ArrayList<>();
+    static  ArrayList<Integer> labMarkList = new ArrayList<>();
+    static  ArrayList<Integer> assignmentMarkList = new ArrayList<>();
+    static  ArrayList<Integer> testMarkList = new ArrayList<>();
+    static  ArrayList<Integer> quizMarkList = new ArrayList<>();
+    static  ArrayList<Integer> finalMarkList = new ArrayList<>();
     static boolean loop = true;
 
     public static void main(String[] args) {
@@ -227,7 +234,7 @@ public class Main implements Serializable {
             }
             System.out.println("Assessment had been updated.");
             //re-write assessment file for the changes
-            writeClassFile();
+            writeAssessmentFile();
 
             System.out.println("Do you want to continue edit assessment? [y/n]");
             String result = input.next();
@@ -420,6 +427,8 @@ public class Main implements Serializable {
             System.out.println("7) Remove Student from Class");
             System.out.println("8) Add Assessment to Class");
             System.out.println("9) Assign Mark to Student's Assessment");
+            System.out.println("10) View Student's Assessment Mark");
+            System.out.println("11) View All Student's Assessment Mark");
             System.out.println("0) Back");
             System.out.println();
             System.out.println("Select number: ");
@@ -462,6 +471,12 @@ public class Main implements Serializable {
                 case 9:
                     assignMark();
                     break;
+                case 10:
+                    ViewStudMark();
+                    break;
+                case 11:
+                    ViewAllStudMark();
+                    break;
                 case 0:
                     //Back Point
                     break;
@@ -471,8 +486,101 @@ public class Main implements Serializable {
         }
     }
 
-    private static void assignMark() {
+    private static void ViewAllStudMark() {
 
+    }
+
+    private static void ViewStudMark() {
+        readClassFile();
+
+        while (loop) {
+            System.out.println("Enter class name: ");
+            String inputName = input.nextLine();
+
+            for (int i = 0; i < classList.size(); i++) {
+                if (classList.get(i).getName().equals(inputName)) {
+                    classList.get(i).printClassDetails();
+                }
+            }
+
+            System.out.println("Class detail will not show if the class is not exist.");
+            System.out.println("Confirm view student mark from this class? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")) {
+                System.out.println("Name of assessment:");
+                String inputAss = input.nextLine();
+                System.out.println("Student Name: ");
+                String inputStudName = input.nextLine();
+
+                for (int i = 0; i < classList.size(); i++) {
+                    if (classList.get(i).getName().equals(inputName)) {
+                        classList.get(i).viewStudentMark(inputAss, inputStudName);
+                    }
+                }
+            }
+
+            pressEnterKeyToContinue();
+            System.out.println("Do you want to continue view student mark? [y/n]");
+            String result = input.next();
+
+            if (result.equals("n")) {
+                break;
+            } else {
+                loop = true;
+            }
+        }
+    }
+
+    private static void assignMark() {
+        readClassFile();
+
+        while (loop) {
+            System.out.println("Enter class name: ");
+            String inputName = input.nextLine();
+
+            for (int i = 0; i < classList.size(); i++) {
+                if (classList.get(i).getName().equals(inputName)) {
+                    classList.get(i).printClassDetails();
+                }
+            }
+
+            System.out.println("Class detail will not show if the class is not exist.");
+            System.out.println("Confirm assign student mark from this class? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")) {
+                System.out.println("Name of assessment:");
+                String inputAss = input.nextLine();
+                System.out.println("Student Name: ");
+                String inputStudName = input.nextLine();
+                System.out.println("Student Mark: ");
+                int inputStudMark = input.nextInt();
+                input.nextLine();
+
+                for (int i = 0; i < classList.size(); i++) {
+                    if (classList.get(i).getName().equals(inputName)) {
+                        classList.get(i).addMarkToAssessment(inputAss, inputStudName, inputStudMark);
+                    }
+                }
+            }
+
+            //store arraylist in txt file
+            writeClassFile();
+
+            System.out.println("Mark had been assigned.");
+            System.out.println("Do you want to continue assign mark to student? [y/n]");
+            String result = input.next();
+            input.nextLine();
+
+            if (result.equals("n")) {
+                break;
+            } else {
+                loop = true;
+            }
+        }
     }
 
     private static void addAssessmentToClass() {
@@ -490,7 +598,7 @@ public class Main implements Serializable {
             }
 
             System.out.println("Class detail will not show if the class is not exist.");
-            System.out.println("Confirm add unit to this class? [y/n] ");
+            System.out.println("Confirm add assessment to this class? [y/n] ");
             String ans = input.next();
             input.nextLine();
 
@@ -522,11 +630,11 @@ public class Main implements Serializable {
             //re-write class file for the changes made
             writeClassFile();
 
-            System.out.println("Do you want to exit? [y/n]");
+            System.out.println("Do you want to continue add assessment? [y/n]");
             String result = input.next();
             input.nextLine();
 
-            if(result.equals("y")){
+            if(result.equals("n")){
                 break;
             }
             else{
@@ -565,10 +673,8 @@ public class Main implements Serializable {
                 String inputStud = input.nextLine();
 
                 for (int i = 0; i < classList.size(); i++) {
-//                    if(classList.get(i).getName().equals(inputStud)){
-                        classList.get(i).removeStudent(inputStud);
-                        System.out.println("Student had been removed.");
-//                    }
+                    classList.get(i).removeStudent(inputStud);
+                    System.out.println("Student had been removed.");
                 }
             }
 
