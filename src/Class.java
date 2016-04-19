@@ -10,15 +10,34 @@ public class Class implements Serializable{
     private String code;
     private Unit unit;
     private String sem;
-    private int year;
+    private String year;
     private ArrayList<Student> studentList = new ArrayList<>();
     private ArrayList<Assessment> assessmentList = new ArrayList<>();
 
     public Class(){}
 
-    public Class(String name, String code){
+    public Class(String name, String code, String sem, String year){
         this.name = name;
         this.code = code;
+        this.sem = sem;
+        this.year = year;
+    }
+
+    public String getSem() {
+        return sem;
+    }
+
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setSem(String sem) {
+        this.sem = sem;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
     }
 
     public String getName() {
@@ -70,7 +89,8 @@ public class Class implements Serializable{
     }
 
     public void printClassDetails(){
-        System.out.println("Class Name :" + this.getName() + "\n" + "Class Code :" + this.getCode());
+        System.out.println("Class Name :" + this.getName() + "\n" + "Class Code :" + this.getCode()
+                + "\n" + "Semester :" + this.getSem() + "\n" + "Year :" + this.getYear());
         System.out.println(this.getUnit());
 
         System.out.println("List of assessments :");

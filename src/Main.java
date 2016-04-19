@@ -704,18 +704,15 @@ public class Main implements Serializable {
             input.nextLine();
 
             if (ans.equals("y")) {
-                System.out.println("============================================================");
-                System.out.println("Lists of students from class");
-                System.out.println("============================================================");
-                    for (int i = 0; i < classList.size(); i++) {
-                        classList.get(i).getStudentList();
-                    }
-
                 System.out.println("Enter student name you wish to remove:");
                 String inputStud = input.nextLine();
 
                 for (int i = 0; i < classList.size(); i++) {
                     classList.get(i).removeStudent(inputStud);
+                    assessmentList2 = classList.get(i).getAssessmentList();
+                    for(int j = 0; j < assessmentList2.size(); j++){
+                        assessmentList2.get(j).removeSubmission(inputStud);
+                    }
                     System.out.println("Student had been removed.");
                 }
             }
@@ -927,11 +924,13 @@ public class Main implements Serializable {
 
             if (ans.equals("y")){
                 int cont = 0;
-                while (cont != 3) {
+                while (cont != 5) {
                     System.out.println("============================================================");
                     System.out.println("1) Edit Name");
                     System.out.println("2) Edit Code");
-                    System.out.println("3) Back");
+                    System.out.println("3) Edit Semester");
+                    System.out.println("4) Edit Year");
+                    System.out.println("5) Back");
                     System.out.println();
                     System.out.println("Select number: ");
 
@@ -969,6 +968,30 @@ public class Main implements Serializable {
                             }
                             break;
                         case 3:
+                            System.out.println("============================================================");
+                            System.out.println("Old Semester: ");
+                            String oldSem = input.nextLine();
+                            System.out.println("New Semester: ");
+                            String newSem = input.nextLine();
+                            for (int i = 0; i < classList.size(); i++) {
+                                if (classList.get(i).getSem().equals(oldSem)) {
+                                    classList.get(i).setSem(newSem);
+                                }
+                            }
+                            break;
+                        case 4:
+                            System.out.println("============================================================");
+                            System.out.println("Old Year: ");
+                            String oldYear = input.nextLine();
+                            System.out.println("New Year: ");
+                            String newYear = input.nextLine();
+                            for (int i = 0; i < classList.size(); i++) {
+                                if (classList.get(i).getYear().equals(oldYear)) {
+                                    classList.get(i).setYear(newYear);
+                                }
+                            }
+                            break;
+                        case 5:
                             //Back Point
                             break;
                         default:
@@ -1045,11 +1068,15 @@ public class Main implements Serializable {
             String inputName = input.nextLine();
             System.out.println("Code :");
             String inputCode = input.nextLine();
+            System.out.println("Sem :");
+            String inputSem = input.nextLine();
+            System.out.println("Year :");
+            String inputYear = input.nextLine();
 
             //create class, add to arraylist
-            Class newClass = new Class(inputName, inputCode);
+            Class newClass = new Class(inputName, inputCode, inputSem, inputYear);
 
-            if (!inputName.equals("") || !inputCode.equals("")) {
+            if (!inputName.equals("") || !inputCode.equals("")  || !inputSem.equals("")  || !inputYear.equals("")) {
                 classList.add(newClass);
             }
 

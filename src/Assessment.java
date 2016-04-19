@@ -58,4 +58,12 @@ public class Assessment implements Serializable {
     public ArrayList<Submission> getSubmissionsList() {
         return submissionsList;
     }
+
+    public void removeSubmission(String inputStudName){
+        for(int i =0; i < submissionsList.size(); i++){
+            if(submissionsList.get(i).getName().equals(inputStudName)){
+                this.submissionsList.remove(submissionsList.get(i));
+            }
+        }
+    }
 }
