@@ -502,28 +502,7 @@ public class Main implements Serializable {
             input.nextLine();
 
             if (ans.equals("y")) {
-                for (int i = 0; i < classList.size(); i++) {
-                    studentList = classList.get(i).getStudentList();
-                    assessmentList = classList.get(i).getAssessmentList();
-                }
 
-                System.out.println("Enter assessment name you want to view student's mark?");
-                String inputAss = input.nextLine();
-//                System.out.println("Name of the student: ");
-//                String inputStudName = input.nextLine();
-
-
-                for(int i =0; i < assessmentList.size() ; i++){
-                    submissionsList = assessmentList.get(i).getSubmissionsList();
-                }
-
-                for(int i =0; i < assessmentList.size() ; i++){
-                    if(assessmentList.get(i).getName().equals(inputAss)){
-                        for(int j =0; j < submissionsList.size();j++) {
-                            System.out.println("Student :" + submissionsList.get(j).getName()+ "\t" + " Mark: " + submissionsList.get(j).getMark());
-                        }
-                    }
-                }
             }
 
             pressEnterKeyToContinue();
@@ -541,7 +520,6 @@ public class Main implements Serializable {
 
     private static void ViewStudMark() {
         readClassFile();
-        readAssessmentFile();
 
         while (loop) {
             System.out.println("Enter class name: ");
@@ -550,6 +528,7 @@ public class Main implements Serializable {
             for (int i = 0; i < classList.size(); i++) {
                 if (classList.get(i).getName().equals(inputName)) {
                     classList.get(i).printClassDetails();
+                    assessmentList = classList.get(i).getAssessmentList();
                 }
             }
 
@@ -559,28 +538,18 @@ public class Main implements Serializable {
             input.nextLine();
 
             if (ans.equals("y")) {
-                for (int i = 0; i < classList.size(); i++) {
-                    studentList = classList.get(i).getStudentList();
-                    assessmentList = classList.get(i).getAssessmentList();
-                }
-
                 System.out.println("Enter assessment name you want to view student's mark?");
                 String inputAss = input.nextLine();
-//                System.out.println("Name of the student: ");
-//                String inputStudName = input.nextLine();
-
-
-                for(int i =0; i < assessmentList.size() ; i++){
-                    submissionsList = assessmentList.get(i).getSubmissionsList();
-                }
 
                 for(int i =0; i < assessmentList.size() ; i++){
                     if(assessmentList.get(i).getName().equals(inputAss)){
+                        submissionsList = assessmentList.get(i).getSubmissionsList();
                         for(int j =0; j < submissionsList.size();j++) {
-                            System.out.println("Student :" + submissionsList.get(j).getName()+ "\t" + " Mark: " + submissionsList.get(j).getMark());
+                            System.out.println("Student :" + submissionsList.get(j).getName() + "\t" + " Mark: " + submissionsList.get(j).getMark());
                         }
                     }
                 }
+
             }
 
             pressEnterKeyToContinue();
@@ -599,7 +568,6 @@ public class Main implements Serializable {
     private static void assignMark() {
 
         readClassFile();
-        readAssessmentFile();
 
         while (loop) {
             System.out.println("Enter class name: ");
@@ -608,6 +576,8 @@ public class Main implements Serializable {
             for (int i = 0; i < classList.size(); i++) {
                 if (classList.get(i).getName().equals(inputName)) {
                     classList.get(i).printClassDetails();
+                    assessmentList = classList.get(i).getAssessmentList();
+                    break;
                 }
             }
 
@@ -617,11 +587,6 @@ public class Main implements Serializable {
             input.nextLine();
 
             if (ans.equals("y")) {
-                for (int i = 0; i < classList.size(); i++) {
-                    studentList = classList.get(i).getStudentList();
-                    assessmentList = classList.get(i).getAssessmentList();
-                }
-
                 System.out.println("Enter assessment name you want to assign mark to the student?");
                 String inputAss = input.nextLine();
                 System.out.println("Name of the student: ");
@@ -631,18 +596,12 @@ public class Main implements Serializable {
                 input.nextLine();
 
                 for(int i =0; i < assessmentList.size() ; i++){
-                    submissionsList = assessmentList.get(i).getSubmissionsList();
-                }
-
-                for(int i =0; i < assessmentList.size() ; i++){
                     if(assessmentList.get(i).getName().equals(inputAss)){
-                        for(int j =0; j < studentList.size(); j++){
-                            if(studentList.get(j).getName().equals(inputStudName)){
-                                for(int k =0; k < submissionsList.size(); k++){
-                                    if(submissionsList.get(k).getName().equals(studentList.get(j).getName()) && submissionsList.get(k).getId().equals(studentList.get(j).getId()) ){
-                                        submissionsList.get(k).setMark(inputStudMark);
-                                    }
-                                }
+                        submissionsList = assessmentList.get(i).getSubmissionsList();
+                        for(int k =0; k < submissionsList.size(); k++){
+                            if(submissionsList.get(k).getName().equals(inputStudName) ){
+                                submissionsList.get(k).setMark(inputStudMark);
+                                break;
                             }
                         }
                     }
@@ -652,7 +611,6 @@ public class Main implements Serializable {
 
             //store arraylist in txt file
             writeClassFile();
-            writeAssessmentFile();
 
             System.out.println("Mark had been assigned.");
             System.out.println("Do you want to continue assign mark to student? [y/n]");
@@ -722,7 +680,6 @@ public class Main implements Serializable {
             System.out.println("Class had been updated.");
             //re-write class file for the changes made
             writeClassFile();
-            writeAssessmentFile();
 
             System.out.println("Do you want to continue add assessment? [y/n]");
             String result = input.next();
