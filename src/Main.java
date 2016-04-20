@@ -489,19 +489,34 @@ public class Main implements Serializable {
         while (loop) {
             System.out.println("Enter class name: ");
             String inputName = input.nextLine();
-
-            for (int i = 0; i < classList.size(); i++) {
-                if (classList.get(i).getName().equals(inputName)) {
-                    classList.get(i).printClassDetails();
-                }
-            }
-
-            System.out.println("Class detail will not show if the class is not exist.");
             System.out.println("Confirm view summary report of this class? [y/n] ");
             String ans = input.next();
             input.nextLine();
 
             if (ans.equals("y")) {
+                double totalMark = 0;
+                System.out.println("============================================================");
+                System.out.println("Unit Summary Report");
+                System.out.println("============================================================");
+                for (int i = 0; i < classList.size(); i++) {
+                    if (classList.get(i).getName().equals(inputName)) {
+                        assessmentList = classList.get(i).getAssessmentList();
+                        classList.get(i).printSummaryReport();
+
+                        for(int j =0; j < assessmentList.size() ; j++){
+                            submissionsList = assessmentList.get(j).getSubmissionsList();
+                            System.out.println("\n"+assessmentList.get(j).getName());
+                            for(int k =0; k < submissionsList.size();k++) {
+                                System.out.println(k + ". " + submissionsList.get(k).getId() + "\t" + submissionsList.get(k).getName() + "\t" + " Mark: " + submissionsList.get(k).getMark());
+                            }
+                        }
+
+                        System.out.println("\n"+"Total Number of candidates presenting: "+ submissionsList.size());
+                        System.out.println("Student Total Mark: ");
+
+                        
+                    }
+                }
 
             }
 
@@ -587,6 +602,15 @@ public class Main implements Serializable {
             input.nextLine();
 
             if (ans.equals("y")) {
+                System.out.println("============================================================");
+                System.out.println("Lists of Assessment Weight");
+                System.out.println("============================================================");
+
+                //loop assessment list
+                for (int i = 0; i < assessmentList.size(); i++) {
+                    System.out.println(i + "." + assessmentList.get(i).getName() +"\t \t \t" + "Weight:" +  assessmentList.get(i).getWeight());
+                }
+
                 System.out.println("Enter assessment name you want to assign mark to the student?");
                 String inputAss = input.nextLine();
                 System.out.println("Name of the student: ");
