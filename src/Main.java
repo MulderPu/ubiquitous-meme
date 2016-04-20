@@ -426,6 +426,7 @@ public class Main implements Serializable {
             System.out.println("9) Assign Mark to Student's Assessment");
             System.out.println("10) View Student's Assessment Mark");
             System.out.println("11) View Summary Report");
+            System.out.println("12) View Student Individual Report");
             System.out.println("0) Back");
             System.out.println();
             System.out.println("Select number: ");
@@ -474,11 +475,86 @@ public class Main implements Serializable {
                 case 11:
                     ViewSummaryReport();
                     break;
+                case 12:
+                    ViewStudReport();
+                    break;
                 case 0:
                     //Back Point
                     break;
                 default:
                     System.out.println("Invalid Input");
+            }
+        }
+    }
+
+    private static void ViewStudReport() {
+        readClassFile();
+
+        while (loop) {
+            System.out.println("Enter class name: ");
+            String inputName = input.nextLine();
+
+            for (int i = 0; i < classList.size(); i++) {
+                if (classList.get(i).getName().equals(inputName)) {
+                    classList.get(i).printClassDetails();
+                    assessmentList = classList.get(i).getAssessmentList();
+                }
+            }
+
+            System.out.println("Class detail will not show if the class is not exist.");
+            System.out.println("Confirm view student individual report from this class? [y/n] ");
+            String ans = input.next();
+            input.nextLine();
+
+            if (ans.equals("y")) {
+                double totalmark = 0;
+                System.out.println("Enter student name: ");
+                String inputStudName = input.nextLine();
+
+                System.out.println("============================================================");
+                System.out.println("Student Individual Report");
+                System.out.println("============================================================");
+
+
+
+                for(int i =0; i < assessmentList.size() ; i++){
+                    submissionsList = assessmentList.get(i).getSubmissionsList();
+                    System.out.println(assessmentList.get(i).getName());
+                    for(int k =0; k < submissionsList.size(); k++){
+                        if(submissionsList.get(k).getName().equals(inputStudName)) {
+                            System.out.println(submissionsList.get(k).getMark());
+                            totalmark += submissionsList.get(k).getMark();
+                        }
+                    }
+                }
+                System.out.println("\n" + "Total mark = " + totalmark);
+
+                if(totalmark < 50){
+                    System.out.println("Grade: N" );
+                }
+                else if(totalmark >=50 && totalmark < 60){
+                    System.out.println("Grade: P");
+                }
+                else if(totalmark >=60 && totalmark<70){
+                    System.out.println("Grade: C");
+                }
+                else if(totalmark >=70 && totalmark<80){
+                    System.out.println("Grade: D");
+                }
+                else {
+                    System.out.println("Grade: HD");
+                }
+            }
+
+            pressEnterKeyToContinue();
+            System.out.println("Do you want to continue view student's individual report? [y/n]");
+            String result = input.next();
+            input.nextLine();
+
+            if (result.equals("n")) {
+                break;
+            } else {
+                loop = true;
             }
         }
     }
@@ -512,9 +588,6 @@ public class Main implements Serializable {
                         }
 
                         System.out.println("\n"+"Total Number of candidates presenting: "+ submissionsList.size());
-                        System.out.println("Student Total Mark: ");
-
-                        
                     }
                 }
 
